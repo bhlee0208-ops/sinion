@@ -195,6 +195,10 @@
             gap: 15px;
             flex-shrink: 0;
         }
+        /* PC에서 모바일 햄버거 버튼 숨기기 */
+        .mobile-hamburger-btn {
+            display: none !important;
+        }
         @media only screen and (max-width: 1199px) {
             .logo-center {
                 max-height: 150px !important;
@@ -213,6 +217,43 @@
         @media only screen and (max-width: 767px) {
             .logo-center {
                 max-height: 120px !important;
+            }
+            /* 모바일에서 네비게이션 바 숨기기 */
+            .header-main-one-wrapper .main-header .nav-area {
+                display: none !important;
+            }
+            /* 모바일에서 버튼 영역 숨기기 */
+            .header-main-one-wrapper .main-header .button-area {
+                display: none !important;
+            }
+            /* 로고 영역에 상대 위치 지정 및 햄버거 버튼 여백 */
+            .logo-center-wrapper {
+                position: relative !important;
+                padding-top: 80px !important;
+            }
+            /* 모바일 햄버거 버튼 - 로고 위에 배치 */
+            .mobile-hamburger-btn {
+                display: flex !important;
+            }
+            #menu-btn-mobile.mobile-hamburger-btn {
+                position: absolute !important;
+                top: 10px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                z-index: 1000 !important;
+                background: #F2F2F2 !important;
+                height: 55px !important;
+                min-width: 55px !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: 15px !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            #menu-btn-mobile.mobile-hamburger-btn img {
+                width: auto !important;
+                height: auto !important;
             }
         }
     </style>
@@ -495,6 +536,9 @@
                     <div class="col-lg-12">
                         <div class="header-main-one-wrapper">
                             <div class="logo-center-wrapper">
+                                <button id="menu-btn-mobile" aria-label="Menu" class="menu-btn menu mobile-hamburger-btn">
+                                    <img class="menu-light" src="assets/images/icons/01.svg" alt="Menu-icon">
+                                </button>
                                 <div class="thumbnail">
                                     <a href="index.html">
                                         <img src="assets/images/logo/logo.png" alt="시니온 로고" class="logo-center">
@@ -994,26 +1038,22 @@
                 </ul>
             </nav>
 
+            <!-- 로그인 및 회원가입 버튼 -->
+            <div class="mobile-menu-buttons" style="padding: 20px 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 20px;">
+                <a href="login.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px;">로그인</a>
+                <a href="register.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">회원가입</a>
+            </div>
+
             <div class="social-wrapper-one">
                 <ul>
                     <li>
-                        <a href="#" aria-label="Facebook">
-                            <i class="fa-brands fa-facebook-f"></i>
+                        <a href="https://www.instagram.com/The-Sinion" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#" aria-label="twitter">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="youtube">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="linkedin">
-                            <i class="fa-brands fa-linkedin-in"></i>
+                        <a href="https://pf.kakao.com/_시니온SINION" target="_blank" rel="noopener noreferrer" aria-label="KakaoTalk">
+                            <i class="fas fa-comment"></i>
                         </a>
                     </li>
                 </ul>
