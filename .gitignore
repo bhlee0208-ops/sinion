@@ -14,6 +14,7 @@ read_hwp.py
 *.hwp
 *.xlsx
 *.txt
+!website/robots.txt
 *.json
 *.md
 !PRD_시니온_홈페이지.md
