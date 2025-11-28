@@ -1,0 +1,47 @@
+# 샘플 파일 및 불필요한 파일 제외
+invena-documentation/
+analysis_result.txt
+analyze_excel_detailed.py
+analyze_excel.py
+analyze_hwp_content.py
+hwp_analysis_result.txt
+hwp_result.txt
+read_hwp_simple.py
+read_hwp_v2.py
+read_hwp.py
+
+# 문서 파일
+*.hwp
+*.xlsx
+*.txt
+*.json
+*.md
+!PRD_시니온_홈페이지.md
+
+# 이미지 파일 (루트에 있는 것들)
+*.png
+!website/**/*.png
+*.jpg
+!website/**/*.jpg
+
+# 시스템 파일
+.DS_Store
+Thumbs.db
+*.db
+
+# Git
+.git/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 로그 파일
+*.log
+
+# 임시 파일
+*.tmp
+*.temp
+
