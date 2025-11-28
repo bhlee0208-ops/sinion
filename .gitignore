@@ -53,6 +53,12 @@ Thumbs.db
 # 샘플 폴더
 Dusty_v1.0.0/
 
+# 관리자 페이지 샘플 파일
+website/assets/admin/images/demo/
+website/assets/admin/images/landing/
+website/assets/admin/js/pages/demo.*
+website/assets/admin/js/pages/landing.*
+
 # Node modules
 node_modules/
 
