@@ -56,6 +56,51 @@
     </script>
     <link rel="stylesheet" href="assets/css/plugins/fontawesome.css">
     <style>
+        /* 로그인/회원가입/로그아웃/관리자 버튼 텍스트만 표시 */
+        #header-login-btn, #header-register-btn, #header-logout-btn, #header-admin-btn,
+        #mobile-login-btn, #mobile-register-btn, #mobile-logout-btn, #mobile-admin-btn {
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 8px !important;
+            text-decoration: none !important;
+            box-shadow: none !important;
+            color: #333333 !important;
+            font-weight: normal !important;
+            border-radius: 0 !important;
+            min-width: auto !important;
+            min-height: auto !important;
+            width: auto !important;
+            height: auto !important;
+            line-height: normal !important;
+            vertical-align: middle !important;
+        }
+        #header-login-btn::before, #header-login-btn::after,
+        #header-register-btn::before, #header-register-btn::after,
+        #header-logout-btn::before, #header-logout-btn::after,
+        #header-admin-btn::before, #header-admin-btn::after,
+        #mobile-login-btn::before, #mobile-login-btn::after,
+        #mobile-register-btn::before, #mobile-register-btn::after,
+        #mobile-logout-btn::before, #mobile-logout-btn::after,
+        #mobile-admin-btn::before, #mobile-admin-btn::after {
+            display: none !important;
+            content: none !important;
+        }
+        #header-login-btn:hover, #header-register-btn:hover, #header-logout-btn:hover, #header-admin-btn:hover,
+        #mobile-login-btn:hover, #mobile-register-btn:hover, #mobile-logout-btn:hover, #mobile-admin-btn:hover {
+            background: none !important;
+            border: none !important;
+            text-decoration: underline !important;
+            color: #0b4df5 !important;
+        }
+        /* 모바일 메뉴 버튼 가로 정렬 */
+        .mobile-menu-buttons {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            gap: 15px !important;
+            align-items: center !important;
+        }
         /* Font Awesome 아이콘 강제 표시 - 최우선 적용 */
         i.fa, i.fas, i.far, i.fal, i.fab, i.fad, i.fat, i[class*="fa-"],
         .fa, .fas, .far, .fal, .fab, .fad, .fat, [class*="fa-"] {
@@ -237,10 +282,14 @@
             font-weight: 500 !important;
         }
         .header-main-one-wrapper .main-header .button-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-shrink: 0;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            gap: 10px !important;
+            flex-shrink: 0 !important;
+            flex-wrap: nowrap !important;
+            white-space: nowrap !important;
+            min-width: 280px !important;
         }
         /* PC에서 모바일 햄버거 버튼 숨기기 */
         .mobile-hamburger-btn {
@@ -567,11 +616,11 @@
                                     <div class="loader-section section-right"></div>
                                 </div>
                                 <div class="button-area">
-                                    <a id="header-login-btn" href="login.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 10px 20px;">로그인</a>
-                                    <a id="header-register-btn" href="register.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 10px 20px;">회원가입</a>
-                                    <button id="header-logout-btn" onclick="handleLogout()" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="display: none; background: #dc3545; border: none; color: #ffffff; padding: 10px 20px; cursor: pointer;">로그아웃</button>
+                                    <a id="header-login-btn" href="login.html" style="color: #333; text-decoration: none;">로그인</a>
+                                    <a id="header-register-btn" href="register.html" style="color: #333; text-decoration: none;">회원가입</a>
+                                    <button id="header-logout-btn" onclick="handleLogout()" style="display: none; color: #333; background: none; border: none; cursor: pointer;">로그아웃</button>
+                                    <a id="header-admin-btn" href="admin.html" style="display: none; color: #333; text-decoration: none;">관리자</a>
                                     <a href="#contact-section" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn">문의하기</a>
-                                    <a id="header-admin-btn" href="admin.html" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn" style="display: none; background: #6c757d; border: none; color: #ffffff; padding: 10px 20px;">관리자</a>
                                     <button id="menu-btn" aria-label="Menu" class="menu-btn menu ml--20 ml_sm--5">
                                         <img class="menu-light" src="assets/images/icons/01.svg" alt="Menu-icon">
                                     </button>
@@ -1229,10 +1278,10 @@
 
             <!-- 로그인 및 회원가입 버튼 -->
             <div class="mobile-menu-buttons" style="padding: 20px 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 20px;">
-                <a id="mobile-login-btn" href="login.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px;">로그인</a>
-                <a id="mobile-register-btn" href="register.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">회원가입</a>
-                <button id="mobile-logout-btn" onclick="handleLogout()" class="rts-btn btn-primary" style="display: none; width: 100%; text-align: center; background: #dc3545; border: none; color: #ffffff; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px; cursor: pointer;">로그아웃</button>
-                <a id="mobile-admin-btn" href="admin.html" class="rts-btn btn-primary" style="display: none; width: 100%; text-align: center; background: #6c757d; border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">관리자</a>
+                <a id="mobile-login-btn" href="login.html" style="color: #333; text-decoration: none;">로그인</a>
+                <a id="mobile-register-btn" href="register.html" style="color: #333; text-decoration: none;">회원가입</a>
+                <button id="mobile-logout-btn" onclick="handleLogout()" style="display: none; color: #333; background: none; border: none; cursor: pointer;">로그아웃</button>
+                <a id="mobile-admin-btn" href="admin.html" style="display: none; color: #333; text-decoration: none;">관리자</a>
             </div>
 
             <div class="social-wrapper-one" style="display: flex !important; justify-content: center !important; align-items: center !important; gap: 20px !important; padding: 20px 0 !important; margin-top: 20px !important; border-top: 1px solid rgba(255, 255, 255, 0.1) !important;">

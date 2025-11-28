@@ -994,11 +994,8 @@
                             });
                         }
                         
-                        // 상태 배지
+                        // 상태 확인
                         const published = noticeData.published !== false;
-                        const statusBadge = published 
-                            ? '<span class="badge bg-success">공개</span>'
-                            : '<span class="badge bg-secondary">비공개</span>';
                         
                         // 중요 공지 표시
                         const isImportant = noticeData.isImportant === true;
@@ -1013,7 +1010,12 @@
                                 <td>${noticeData.author || '관리자'}</td>
                                 <td>${createdAt}</td>
                                 <td>${noticeData.views || 0}</td>
-                                <td>${statusBadge}</td>
+                                <td>
+                                    <select class="form-select form-select-sm" style="width: auto; min-width: 100px;" onchange="updateNoticeStatus('${docId}', this.value)">
+                                        <option value="true" ${published ? 'selected' : ''}>공개</option>
+                                        <option value="false" ${!published ? 'selected' : ''}>비공개</option>
+                                    </select>
+                                </td>
                                 <td>
                                     <button class="btn btn-sm btn-primary me-2" onclick="editNotice('${docId}')">수정</button>
                                     <button class="btn btn-sm btn-danger" onclick="deleteNotice('${docId}', '${(noticeData.title || '').replace(/'/g, "&#39;")}')">삭제</button>
@@ -1116,6 +1118,29 @@
             // 공지사항 수정 함수 (추후 구현)
             window.editNotice = function(docId) {
                 alert('공지사항 수정 기능은 추후 구현 예정입니다.');
+            };
+            
+            // 공지사항 상태 업데이트 함수
+            window.updateNoticeStatus = async function(docId, statusValue) {
+                try {
+                    const published = statusValue === 'true';
+                    const docRef = doc(db, 'notices', docId);
+                    await updateDoc(docRef, {
+                        published: published,
+                        updatedAt: Timestamp.now()
+                    });
+                    
+                    // 상태 업데이트 성공 메시지 (선택적)
+                    console.log(`공지사항 상태가 ${published ? '공개' : '비공개'}로 변경되었습니다.`);
+                    
+                    // 목록 새로고침 (선택적 - 실시간 업데이트를 원하면 주석 처리)
+                    // loadNoticeList();
+                } catch (error) {
+                    console.error('공지사항 상태 업데이트 오류:', error);
+                    alert('공지사항 상태 변경 중 오류가 발생했습니다: ' + error.message);
+                    // 오류 발생 시 목록 새로고침하여 원래 상태로 복구
+                    loadNoticeList();
+                }
             };
             
             // 공지사항 삭제 함수
