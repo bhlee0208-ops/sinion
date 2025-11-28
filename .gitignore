@@ -46,3 +46,16 @@ Thumbs.db
 *.tmp
 *.temp
 
+# 환경 변수 파일
+.env
+!.env.example
+
+# 관리자 페이지 샘플 폴더
+website/assets/admin/
+
+# 샘플 폴더
+Dusty_v1.0.0/
+
+# Node modules
+node_modules/
+

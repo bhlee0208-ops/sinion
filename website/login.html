@@ -741,9 +741,11 @@
                                     <div class="loader-section section-right"></div>
                                 </div>
                                 <div class="button-area">
-                                    <a href="login.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 10px 20px;">로그인</a>
-                                    <a href="register.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 10px 20px;">회원가입</a>
+                                    <a id="header-login-btn" href="login.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 10px 20px;">로그인</a>
+                                    <a id="header-register-btn" href="register.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 10px 20px;">회원가입</a>
+                                    <button id="header-logout-btn" onclick="handleLogout()" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="display: none; background: #dc3545; border: none; color: #ffffff; padding: 10px 20px; cursor: pointer;">로그아웃</button>
                                     <a href="#contact-section" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn">문의하기</a>
+                                    <a id="header-admin-btn" href="admin.html" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn" style="display: none; background: #6c757d; border: none; color: #ffffff; padding: 10px 20px;">관리자</a>
                                     <button id="menu-btn" aria-label="Menu" class="menu-btn menu ml--20 ml_sm--5">
                                         <img class="menu-light" src="assets/images/icons/01.svg" alt="Menu-icon">
                                     </button>
@@ -762,12 +764,12 @@
             <h1 class="education-form-title">로그인</h1>
             
             <form id="loginForm" method="POST">
-                <!-- 아이디 -->
+                <!-- 이메일 -->
                 <div class="form-group">
                     <label class="form-label">
-                        아이디 <span class="required">*</span>
+                        이메일 <span class="required">*</span>
                     </label>
-                    <input type="text" name="username" class="form-control" placeholder="아이디를 입력해주세요" required>
+                    <input type="email" name="email" class="form-control" placeholder="이메일을 입력해주세요" required>
                 </div>
 
                 <!-- 비밀번호 -->
@@ -776,14 +778,6 @@
                         비밀번호 <span class="required">*</span>
                     </label>
                     <input type="password" name="password" class="form-control" placeholder="비밀번호를 입력해주세요" required>
-                </div>
-
-                <!-- 로그인 유지 -->
-                <div class="form-group">
-                    <div class="radio-option" style="gap: 0 !important;">
-                        <input type="checkbox" name="remember" id="remember" value="yes" style="margin-right: 6px !important; width: 18px !important; height: 18px !important; flex-shrink: 0 !important;">
-                        <label for="remember" style="margin-left: 0 !important; padding-left: 0 !important;">로그인 상태 유지</label>
-                    </div>
                 </div>
 
                 <!-- 제출 버튼 -->
@@ -974,8 +968,10 @@
 
             <!-- 로그인 및 회원가입 버튼 -->
             <div class="mobile-menu-buttons" style="padding: 20px 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 20px;">
-                <a href="login.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px;">로그인</a>
-                <a href="register.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">회원가입</a>
+                <a id="mobile-login-btn" href="login.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px;">로그인</a>
+                <a id="mobile-register-btn" href="register.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">회원가입</a>
+                <button id="mobile-logout-btn" onclick="handleLogout()" class="rts-btn btn-primary" style="display: none; width: 100%; text-align: center; background: #dc3545; border: none; color: #ffffff; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px; cursor: pointer;">로그아웃</button>
+                <a id="mobile-admin-btn" href="admin.html" class="rts-btn btn-primary" style="display: none; width: 100%; text-align: center; background: #6c757d; border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">관리자</a>
             </div>
 
             <div class="social-wrapper-one">
@@ -1008,17 +1004,77 @@
     <script defer src="assets/js/plugins/contact.form.js"></script>
     <script defer src="assets/js/main.js"></script>
     
+    <!-- 초기 상태 설정: 로그아웃 버튼과 관리자 버튼 숨기기 -->
     <script>
+        (function() {
+            // 즉시 실행하여 초기 상태 설정
+            function setInitialButtonState() {
+                const logoutBtn = document.getElementById('header-logout-btn');
+                const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+                const adminBtn = document.getElementById('header-admin-btn');
+                const mobileAdminBtn = document.getElementById('mobile-admin-btn');
+                
+                if (logoutBtn) logoutBtn.style.display = 'none';
+                if (mobileLogoutBtn) mobileLogoutBtn.style.display = 'none';
+                if (adminBtn) adminBtn.style.display = 'none';
+                if (mobileAdminBtn) mobileAdminBtn.style.display = 'none';
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setInitialButtonState);
+            } else {
+                setInitialButtonState();
+            }
+        })();
+    </script>
+    
+    <script src="assets/js/auth-header.js"></script>
+    
+    <script type="module">
+        // Firebase SDK import
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+
+        // Firebase 초기화
+        const firebaseConfig = {
+            apiKey: "AIzaSyBIPC1cb6Auw4JKmNbNjlvyYUwOYySvmqo",
+            authDomain: "sinion-29380.firebaseapp.com",
+            projectId: "sinion-29380",
+            storageBucket: "sinion-29380.firebasestorage.app",
+            messagingSenderId: "417218748288",
+            appId: "1:417218748288:web:cce20cdeefa181c32b6b65",
+            measurementId: "G-8NW54FCZ3R"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // 에러 메시지 한국어 변환
+        const getErrorMessage = (errorCode) => {
+            const errorMessages = {
+                'auth/invalid-email': '유효하지 않은 이메일 주소입니다.',
+                'auth/user-disabled': '사용할 수 없는 계정입니다.',
+                'auth/user-not-found': '등록되지 않은 사용자입니다.',
+                'auth/wrong-password': '비밀번호가 올바르지 않습니다.',
+                'auth/invalid-credential': '이메일 또는 비밀번호가 올바르지 않습니다.',
+                'auth/network-request-failed': '네트워크 오류가 발생했습니다.',
+                'auth/too-many-requests': '너무 많은 요청이 발생했습니다. 잠시 후 다시 시도해주세요.',
+                'auth/operation-not-allowed': '이 작업은 허용되지 않습니다.',
+                'auth/requires-recent-login': '보안을 위해 다시 로그인해주세요.'
+            };
+            return errorMessages[errorCode] || '오류가 발생했습니다. 다시 시도해주세요.';
+        };
+
         // 폼 제출 처리
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // 필수 필드 검증
-            const username = document.querySelector('input[name="username"]').value;
+            const email = document.querySelector('input[name="email"]').value.trim();
             const password = document.querySelector('input[name="password"]').value;
             
-            if (!username) {
-                alert('아이디를 입력해주세요.');
+            if (!email) {
+                alert('이메일을 입력해주세요.');
                 return;
             }
             
@@ -1027,18 +1083,42 @@
                 return;
             }
             
-            // TODO: Firebase Authentication 연동
-            // Firebase Auth를 사용하여 로그인 처리
-            // 예시:
-            // import { signInWithEmailAndPassword } from 'firebase/auth';
-            // const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            // 제출 버튼 비활성화
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i> 로그인 중...';
             
-            // 백엔드 연결 전이므로 폼 데이터 확인만
-            const formData = new FormData(this);
-            console.log('Login Data:', Object.fromEntries(formData));
-            
-            alert('로그인 기능은 Firebase Authentication 연결 후 구현됩니다.');
-            // this.reset();
+            try {
+                // Firebase Authentication으로 로그인
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                
+                // 로그인 성공
+                const user = userCredential.user;
+                
+                // 사용자 정보를 localStorage에 저장 (선택사항)
+                localStorage.setItem('user', JSON.stringify({
+                    uid: user.uid,
+                    email: user.email,
+                    displayName: user.displayName,
+                    emailVerified: user.emailVerified
+                }));
+                
+                // 로그인 성공
+                alert('로그인 성공!');
+                
+                // 인증 상태가 업데이트되도록 약간의 지연 후 페이지 이동
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 300);
+                
+            } catch (error) {
+                console.error('로그인 오류:', error);
+                const errorMessage = getErrorMessage(error.code);
+                alert('로그인 실패: ' + errorMessage);
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
         });
     </script>
 </body>

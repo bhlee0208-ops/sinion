@@ -62,6 +62,36 @@
         .progress-wrap {
             display: none !important;
         }
+        /* 공지사항 아코디언 스타일 */
+        .notice-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.4s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+            padding: 0 !important;
+        }
+        .notice-content.open {
+            max-height: 5000px;
+            opacity: 1;
+            padding: 0 20px 20px 20px !important;
+        }
+        .notice-toggle-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-size: 12px;
+            color: #666;
+            width: 16px;
+            text-align: center;
+        }
+        .notice-item:hover .notice-toggle-icon {
+            color: #0b4df5;
+        }
+        .notice-wrapper {
+            transition: all 0.2s ease;
+        }
+        .notice-item {
+            user-select: none;
+        }
         /* CTA 섹션의 플로팅 사각형 박스 숨기기 */
         .rts-call-to-action-area-two * {
             position: relative !important;
@@ -570,9 +600,11 @@
                                     <div class="loader-section section-right"></div>
                                 </div>
                                 <div class="button-area">
-                                    <a href="login.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 10px 20px;">로그인</a>
-                                    <a href="register.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 10px 20px;">회원가입</a>
+                                    <a id="header-login-btn" href="login.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 10px 20px;">로그인</a>
+                                    <a id="header-register-btn" href="register.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 10px 20px;">회원가입</a>
+                                    <button id="header-logout-btn" onclick="handleLogout()" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="display: none; background: #dc3545; border: none; color: #ffffff; padding: 10px 20px; cursor: pointer;">로그아웃</button>
                                     <a href="#contact-section" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn">문의하기</a>
+                                    <a id="header-admin-btn" href="admin.html" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn" style="display: none; background: #6c757d; border: none; color: #ffffff; padding: 10px 20px;">관리자</a>
                                     <button id="menu-btn" aria-label="Menu" class="menu-btn menu ml--20 ml_sm--5">
                                         <img class="menu-light" src="assets/images/icons/01.svg" alt="Menu-icon">
                                     </button>
@@ -721,50 +753,10 @@
                         <div style="flex: 1; text-align: center;">제목</div>
                         <div style="flex: 0 0 120px; text-align: center;">작성자</div>
                         <div style="flex: 0 0 120px; text-align: center;">작성일</div>
-                        <div style="flex: 0 0 80px; text-align: center;">조회</div>
                     </div>
                     <!-- 공지사항 리스트 -->
-                    <div class="notice-list">
-                        <!-- 공지사항 1 -->
-                        <div class="notice-item" style="display: flex; padding: 18px 20px; border-bottom: 1px solid #e0e0e0; align-items: center; transition: background 0.2s;">
-                            <div style="flex: 0 0 60px; text-align: center; color: #666; font-size: 14px;">4</div>
-                            <div style="flex: 1; padding-left: 20px;">
-                                <a href="#" style="color: #333; text-decoration: none; font-size: 16px; font-weight: 500; display: block;">시니온 신규 프로그램 안내</a>
-                            </div>
-                            <div style="flex: 0 0 120px; text-align: center; color: #666; font-size: 14px;">시니온 관리자</div>
-                            <div style="flex: 0 0 120px; text-align: center; color: #666; font-size: 14px;">2024.01.15</div>
-                            <div style="flex: 0 0 80px; text-align: center; color: #666; font-size: 14px;">125</div>
-                        </div>
-                        <!-- 공지사항 2 -->
-                        <div class="notice-item" style="display: flex; padding: 18px 20px; border-bottom: 1px solid #e0e0e0; align-items: center; transition: background 0.2s;">
-                            <div style="flex: 0 0 60px; text-align: center; color: #666; font-size: 14px;">3</div>
-                            <div style="flex: 1; padding-left: 20px;">
-                                <a href="#" style="color: #333; text-decoration: none; font-size: 16px; font-weight: 500; display: block;">전문 강사 양성 프로그램 모집</a>
-                            </div>
-                            <div style="flex: 0 0 120px; text-align: center; color: #666; font-size: 14px;">시니온 관리자</div>
-                            <div style="flex: 0 0 120px; text-align: center; color: #666; font-size: 14px;">2024.01.10</div>
-                            <div style="flex: 0 0 80px; text-align: center; color: #666; font-size: 14px;">98</div>
-                        </div>
-                        <!-- 공지사항 3 -->
-                        <div class="notice-item" style="display: flex; padding: 18px 20px; border-bottom: 1px solid #e0e0e0; align-items: center; transition: background 0.2s;">
-                            <div style="flex: 0 0 60px; text-align: center; color: #666; font-size: 14px;">2</div>
-                            <div style="flex: 1; padding-left: 20px;">
-                                <a href="#" style="color: #333; text-decoration: none; font-size: 16px; font-weight: 500; display: block;">시니온 교육 프로그램 일정 안내</a>
-                            </div>
-                            <div style="flex: 0 0 120px; text-align: center; color: #666; font-size: 14px;">시니온 관리자</div>
-                            <div style="flex: 0 0 120px; text-align: center; color: #666; font-size: 14px;">2024.01.05</div>
-                            <div style="flex: 0 0 80px; text-align: center; color: #666; font-size: 14px;">76</div>
-                        </div>
-                        <!-- 공지사항 4 -->
-                        <div class="notice-item" style="display: flex; padding: 18px 20px; border-bottom: 1px solid #e0e0e0; align-items: center; transition: background 0.2s;">
-                            <div style="flex: 0 0 60px; text-align: center; color: #666; font-size: 14px;">1</div>
-                            <div style="flex: 1; padding-left: 20px;">
-                                <a href="#" style="color: #333; text-decoration: none; font-size: 16px; font-weight: 500; display: block;">시니온 홈페이지 오픈 안내</a>
-                            </div>
-                            <div style="flex: 0 0 120px; text-align: center; color: #666; font-size: 14px;">시니온 관리자</div>
-                            <div style="flex: 0 0 120px; text-align: center; color: #666; font-size: 14px;">2024.01.01</div>
-                            <div style="flex: 0 0 80px; text-align: center; color: #666; font-size: 14px;">234</div>
-                        </div>
+                    <div class="notice-list" id="notice-list-container">
+                        <!-- Firebase에서 데이터를 동적으로 로드합니다 -->
                     </div>
                 </div>
             </div>
@@ -1114,8 +1106,10 @@
 
             <!-- 로그인 및 회원가입 버튼 -->
             <div class="mobile-menu-buttons" style="padding: 20px 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 20px;">
-                <a href="login.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px;">로그인</a>
-                <a href="register.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">회원가입</a>
+                <a id="mobile-login-btn" href="login.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px;">로그인</a>
+                <a id="mobile-register-btn" href="register.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">회원가입</a>
+                <button id="mobile-logout-btn" onclick="handleLogout()" class="rts-btn btn-primary" style="display: none; width: 100%; text-align: center; background: #dc3545; border: none; color: #ffffff; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px; cursor: pointer;">로그아웃</button>
+                <a id="mobile-admin-btn" href="admin.html" class="rts-btn btn-primary" style="display: none; width: 100%; text-align: center; background: #6c757d; border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">관리자</a>
             </div>
 
             <div class="social-wrapper-one">
@@ -1188,6 +1182,32 @@
     <script defer src="assets/js/plugins/contact.form.js"></script>
 
     <script defer src="assets/js/main.js"></script>
+    
+    <!-- 초기 상태 설정: 로그아웃 버튼과 관리자 버튼 숨기기 -->
+    <script>
+        (function() {
+            function setInitialButtonState() {
+                const logoutBtn = document.getElementById('header-logout-btn');
+                const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+                const adminBtn = document.getElementById('header-admin-btn');
+                const mobileAdminBtn = document.getElementById('mobile-admin-btn');
+                
+                if (logoutBtn) logoutBtn.style.display = 'none';
+                if (mobileLogoutBtn) mobileLogoutBtn.style.display = 'none';
+                if (adminBtn) adminBtn.style.display = 'none';
+                if (mobileAdminBtn) mobileAdminBtn.style.display = 'none';
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setInitialButtonState);
+            } else {
+                setInitialButtonState();
+            }
+        })();
+    </script>
+    
+    <script src="assets/js/auth-header.js"></script>
+    
     <script>
         // 앵커 링크 클릭 시 부드러운 스크롤 (즉시 실행 및 이벤트 위임)
         (function() {
@@ -1251,6 +1271,204 @@
             setTimeout(setupContactButton, 500);
             setTimeout(setupContactButton, 1000);
         })();
+    </script>
+    
+    <!-- Firebase 공지사항 로드 -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getFirestore, collection, getDocs, query, orderBy, where, getDoc, doc, updateDoc, increment } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyBIPC1cb6Auw4JKmNbNjlvyYUwOYySvmqo",
+            authDomain: "sinion-29380.firebaseapp.com",
+            projectId: "sinion-29380",
+            storageBucket: "sinion-29380.firebasestorage.app",
+            messagingSenderId: "417218748288",
+            appId: "1:417218748288:web:cce20cdeefa181c32b6b65",
+            measurementId: "G-8NW54FCZ3R"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        // 공지사항 로드 함수
+        async function loadNotices() {
+            try {
+                const container = document.getElementById('notice-list-container');
+                if (!container) return;
+                
+                // 로딩 표시
+                container.innerHTML = '<div style="padding: 40px; text-align: center; color: #666;">로딩 중...</div>';
+                
+                // Firestore에서 모든 공지사항 가져오기 (인덱스 문제 방지)
+                const noticesRef = collection(db, 'notices');
+                const q = query(noticesRef, orderBy('createdAt', 'desc'));
+                const querySnapshot = await getDocs(q);
+                
+                if (querySnapshot.empty) {
+                    container.innerHTML = '<div style="padding: 40px; text-align: center; color: #666;">등록된 공지사항이 없습니다.</div>';
+                    return;
+                }
+                
+                // 공지사항 배열로 변환 및 공개된 것만 필터링
+                const notices = [];
+                querySnapshot.forEach((docSnapshot) => {
+                    const noticeData = docSnapshot.data();
+                    // published가 true인 것만 추가 (기본값도 true로 처리)
+                    if (noticeData.published !== false) {
+                        notices.push({
+                            id: docSnapshot.id,
+                            data: noticeData
+                        });
+                    }
+                });
+                
+                if (notices.length === 0) {
+                    container.innerHTML = '<div style="padding: 40px; text-align: center; color: #666;">공개된 공지사항이 없습니다.</div>';
+                    return;
+                }
+                
+                // 중요 공지사항을 먼저 정렬
+                notices.sort((a, b) => {
+                    const aImportant = a.data.isImportant === true;
+                    const bImportant = b.data.isImportant === true;
+                    if (aImportant && !bImportant) return -1;
+                    if (!aImportant && bImportant) return 1;
+                    return 0;
+                });
+                
+                // 공지사항 HTML 생성
+                let html = '';
+                let index = 1;
+                
+                notices.forEach((notice) => {
+                    const noticeData = notice.data;
+                    const docId = notice.id;
+                    
+                    // 날짜 포맷팅
+                    let createdAt = 'N/A';
+                    if (noticeData.createdAt) {
+                        const date = noticeData.createdAt.toDate ? noticeData.createdAt.toDate() : new Date(noticeData.createdAt);
+                        createdAt = date.toLocaleDateString('ko-KR', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit'
+                        }).replace(/\./g, '.').replace(/\s/g, '');
+                    }
+                    
+                    // 중요 공지 표시
+                    const isImportant = noticeData.isImportant === true;
+                    const titleDisplay = isImportant 
+                        ? `<span style="background: #dc3545; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-right: 8px; font-weight: 600;">중요</span>${noticeData.title || 'N/A'}`
+                        : (noticeData.title || 'N/A');
+                    
+                    // 내용 이스케이프 (XSS 방지)
+                    const content = (noticeData.content || '').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br>');
+                    
+                    html += `
+                        <div class="notice-wrapper" style="border-bottom: 1px solid #e0e0e0;">
+                            <div class="notice-item" style="display: flex; padding: 18px 20px; align-items: center; transition: background 0.2s; cursor: pointer;" onclick="toggleNotice('${docId}')" onmouseover="this.style.background='#f8f9fa'" onmouseout="this.style.background=''">
+                                <div style="flex: 0 0 60px; text-align: center; color: #666; font-size: 14px;">${index}</div>
+                                <div style="flex: 1; padding-left: 20px;">
+                                    <div style="color: #333; font-size: 16px; font-weight: 500; display: flex; align-items: center;">
+                                        <span class="notice-toggle-icon" id="icon-${docId}" style="margin-right: 10px; transition: transform 0.3s;">▶</span>
+                                        ${titleDisplay}
+                                    </div>
+                                </div>
+                                <div style="flex: 0 0 120px; text-align: center; color: #666; font-size: 14px;">${noticeData.author || '관리자'}</div>
+                                <div style="flex: 0 0 120px; text-align: center; color: #666; font-size: 14px;">${createdAt}</div>
+                            </div>
+                            <div class="notice-content" id="content-${docId}" style="display: none; background: #f8f9fa; border-top: 1px solid #e0e0e0;">
+                                <div style="padding: 20px; background: white; border-radius: 8px; margin: 10px 20px 20px 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                                    <div style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #e9ecef;">
+                                        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; font-size: 14px; color: #666;">
+                                            <div><strong style="color: #333;">작성자:</strong> ${noticeData.author || '관리자'}</div>
+                                            <div><strong style="color: #333;">작성일:</strong> ${createdAt}</div>
+                                        </div>
+                                    </div>
+                                    <div style="line-height: 1.8; color: #333; white-space: pre-wrap; word-wrap: break-word; font-size: 15px; padding: 10px 0;">
+                                        ${content}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    index++;
+                });
+                
+                container.innerHTML = html;
+            } catch (error) {
+                console.error('공지사항 로드 오류:', error);
+                console.error('오류 상세:', error.code, error.message, error.stack);
+                const container = document.getElementById('notice-list-container');
+                if (container) {
+                    let errorMessage = '공지사항을 불러오는 중 오류가 발생했습니다.';
+                    if (error.code === 'failed-precondition') {
+                        errorMessage += '\n\nFirebase 인덱스가 필요합니다. Firebase 콘솔에서 인덱스를 생성해주세요.';
+                    } else if (error.message) {
+                        errorMessage += '\n오류: ' + error.message;
+                    }
+                    container.innerHTML = `<div style="padding: 40px; text-align: center; color: #dc3545;">${errorMessage}</div>`;
+                }
+            }
+        }
+        
+        // 공지사항 토글 함수 (아코디언)
+        window.toggleNotice = async function(docId) {
+            const contentDiv = document.getElementById(`content-${docId}`);
+            const iconSpan = document.getElementById(`icon-${docId}`);
+            
+            if (!contentDiv) return;
+            
+            const isOpen = contentDiv.classList.contains('open');
+            
+            if (!isOpen) {
+                // 열기
+                contentDiv.style.display = 'block';
+                // 약간의 지연 후 open 클래스 추가 (애니메이션을 위해)
+                setTimeout(() => {
+                    contentDiv.classList.add('open');
+                }, 10);
+                
+                if (iconSpan) {
+                    iconSpan.textContent = '▼';
+                }
+                
+                // 조회수 증가는 백그라운드에서만 처리 (표시하지 않음)
+                if (!contentDiv.dataset.viewed) {
+                    try {
+                        const docRef = doc(db, 'notices', docId);
+                        await updateDoc(docRef, {
+                            views: increment(1)
+                        });
+                        contentDiv.dataset.viewed = 'true';
+                    } catch (updateError) {
+                        console.error('조회수 증가 오류:', updateError);
+                    }
+                }
+            } else {
+                // 닫기
+                contentDiv.classList.remove('open');
+                if (iconSpan) {
+                    iconSpan.textContent = '▶';
+                }
+                // 애니메이션 완료 후 숨기기
+                setTimeout(() => {
+                    if (!contentDiv.classList.contains('open')) {
+                        contentDiv.style.display = 'none';
+                    }
+                }, 400);
+            }
+        };
+        
+        // DOM 로드 후 실행
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(loadNotices, 500);
+            });
+        } else {
+            setTimeout(loadNotices, 500);
+        }
     </script>
 </body>
 

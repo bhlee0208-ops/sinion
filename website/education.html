@@ -759,9 +759,11 @@
                                     <div class="loader-section section-right"></div>
                                 </div>
                                 <div class="button-area">
-                                    <a href="login.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 10px 20px;">로그인</a>
-                                    <a href="register.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 10px 20px;">회원가입</a>
+                                    <a id="header-login-btn" href="login.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 10px 20px;">로그인</a>
+                                    <a id="header-register-btn" href="register.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 10px 20px;">회원가입</a>
+                                    <button id="header-logout-btn" onclick="handleLogout()" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="display: none; background: #dc3545; border: none; color: #ffffff; padding: 10px 20px; cursor: pointer;">로그아웃</button>
                                     <a href="#contact-section" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn">문의하기</a>
+                                    <a id="header-admin-btn" href="admin.html" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn" style="display: none; background: #6c757d; border: none; color: #ffffff; padding: 10px 20px;">관리자</a>
                                     <button id="menu-btn" aria-label="Menu" class="menu-btn menu ml--20 ml_sm--5">
                                         <img class="menu-light" src="assets/images/icons/01.svg" alt="Menu-icon">
                                     </button>
@@ -1053,8 +1055,10 @@
 
             <!-- 로그인 및 회원가입 버튼 -->
             <div class="mobile-menu-buttons" style="padding: 20px 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 20px;">
-                <a href="login.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px;">로그인</a>
-                <a href="register.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">회원가입</a>
+                <a id="mobile-login-btn" href="login.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px;">로그인</a>
+                <a id="mobile-register-btn" href="register.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">회원가입</a>
+                <button id="mobile-logout-btn" onclick="handleLogout()" class="rts-btn btn-primary" style="display: none; width: 100%; text-align: center; background: #dc3545; border: none; color: #ffffff; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px; cursor: pointer;">로그아웃</button>
+                <a id="mobile-admin-btn" href="admin.html" class="rts-btn btn-primary" style="display: none; width: 100%; text-align: center; background: #6c757d; border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">관리자</a>
             </div>
 
             <div class="social-wrapper-one">
@@ -1087,38 +1091,149 @@
     <script defer src="assets/js/plugins/contact.form.js"></script>
     <script defer src="assets/js/main.js"></script>
     
+    <!-- 초기 상태 설정: 로그아웃 버튼과 관리자 버튼 숨기기 -->
     <script>
-        // 폼 제출 처리
-        document.getElementById('educationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        (function() {
+            function setInitialButtonState() {
+                const logoutBtn = document.getElementById('header-logout-btn');
+                const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+                const adminBtn = document.getElementById('header-admin-btn');
+                const mobileAdminBtn = document.getElementById('mobile-admin-btn');
+                
+                if (logoutBtn) logoutBtn.style.display = 'none';
+                if (mobileLogoutBtn) mobileLogoutBtn.style.display = 'none';
+                if (adminBtn) adminBtn.style.display = 'none';
+                if (mobileAdminBtn) mobileAdminBtn.style.display = 'none';
+            }
             
-            // 필수 필드 검증
-            const name = document.querySelector('input[name="name"]').value;
-            const phone = document.querySelector('input[name="phone"]').value;
-            const privacyAgree = document.querySelector('input[name="privacy_agree"]');
-            
-            if (!name) {
-                alert('이름을 입력해주세요.');
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setInitialButtonState);
+            } else {
+                setInitialButtonState();
+            }
+        })();
+    </script>
+    
+    <script src="assets/js/auth-header.js"></script>
+    
+    <script type="module">
+        // Firebase SDK import
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getFirestore, collection, addDoc, Timestamp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+        
+        // Firebase 초기화
+        const firebaseConfig = {
+            apiKey: "AIzaSyBIPC1cb6Auw4JKmNbNjlvyYUwOYySvmqo",
+            authDomain: "sinion-29380.firebaseapp.com",
+            projectId: "sinion-29380",
+            storageBucket: "sinion-29380.firebasestorage.app",
+            messagingSenderId: "417218748288",
+            appId: "1:417218748288:web:cce20cdeefa181c32b6b65",
+            measurementId: "G-8NW54FCZ3R"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        
+        // DOM이 로드된 후 폼 제출 처리
+        function initFormSubmission() {
+            const form = document.getElementById('educationForm');
+            if (!form) {
+                console.error('educationForm을 찾을 수 없습니다.');
+                setTimeout(initFormSubmission, 100); // 재시도
                 return;
             }
             
-            if (!phone) {
-                alert('연락처를 입력해주세요.');
-                return;
-            }
-            
-            if (!privacyAgree || !privacyAgree.checked) {
-                alert('개인정보 수집·이용에 동의해주세요.');
-                return;
-            }
-            
-            // 백엔드 연결 전이므로 폼 데이터 확인만
-            const formData = new FormData(this);
-            console.log('Form Data:', Object.fromEntries(formData));
-            
-            alert('교육신청 문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
-            this.reset();
-        });
+            // 폼 제출 처리
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // 필수 필드 검증
+                const name = document.querySelector('input[name="name"]').value.trim();
+                const phone = document.querySelector('input[name="phone"]').value.trim();
+                const email = document.querySelector('input[name="email"]').value.trim();
+                const address = document.querySelector('input[name="address"]').value.trim();
+                const subject = document.querySelector('input[name="subject"]').value.trim();
+                const content = document.querySelector('textarea[name="content"]').value.trim();
+                const privacyAgree = document.querySelector('input[name="privacy_agree"]');
+                
+                if (!name) {
+                    alert('이름을 입력해주세요.');
+                    return;
+                }
+                
+                if (!phone) {
+                    alert('연락처를 입력해주세요.');
+                    return;
+                }
+                
+                if (!privacyAgree || !privacyAgree.checked) {
+                    alert('개인정보 수집·이용에 동의해주세요.');
+                    return;
+                }
+                
+                // 제출 버튼 비활성화
+                const submitBtn = document.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i> 처리 중...';
+                
+                // 타임아웃 설정 (30초)
+                const timeoutId = setTimeout(() => {
+                    alert('요청 시간이 초과되었습니다. 네트워크 연결을 확인하고 다시 시도해주세요.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }, 30000);
+                
+                try {
+                    // Firestore에 데이터 저장 (Timestamp 사용)
+                    const docRef = await addDoc(collection(db, 'forms'), {
+                        type: 'education', // 교육신청문의
+                        name: name,
+                        phone: phone,
+                        email: email || '',
+                        address: address || '',
+                        subject: subject || '',
+                        content: content || '',
+                        status: 'pending', // pending, processing, completed, rejected
+                        createdAt: Timestamp.now(),
+                        updatedAt: Timestamp.now()
+                    });
+                    
+                    clearTimeout(timeoutId);
+                    console.log('문의가 성공적으로 저장되었습니다. 문서 ID:', docRef.id);
+                    alert('교육신청 문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                } catch (error) {
+                    clearTimeout(timeoutId);
+                    console.error('폼 제출 오류:', error);
+                    console.error('오류 상세:', error.code, error.message, error.stack);
+                    
+                    let errorMessage = '문의 접수 중 오류가 발생했습니다.';
+                    if (error.code === 'permission-denied') {
+                        errorMessage = '권한이 없습니다. Firebase 보안 규칙을 확인해주세요.';
+                    } else if (error.code === 'unavailable') {
+                        errorMessage = '네트워크 연결을 확인해주세요.';
+                    } else if (error.message) {
+                        errorMessage += '\n오류: ' + error.message;
+                    }
+                    
+                    alert(errorMessage);
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            });
+        }
+        
+        // DOM 로드 후 실행
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initFormSubmission);
+        } else {
+            // 이미 로드된 경우 즉시 실행
+            setTimeout(initFormSubmission, 100);
+        }
     </script>
 </body>
 

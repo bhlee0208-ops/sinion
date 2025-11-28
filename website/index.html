@@ -567,9 +567,11 @@
                                     <div class="loader-section section-right"></div>
                                 </div>
                                 <div class="button-area">
-                                    <a href="login.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 10px 20px;">로그인</a>
-                                    <a href="register.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 10px 20px;">회원가입</a>
+                                    <a id="header-login-btn" href="login.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 10px 20px;">로그인</a>
+                                    <a id="header-register-btn" href="register.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 10px 20px;">회원가입</a>
+                                    <button id="header-logout-btn" onclick="handleLogout()" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="display: none; background: #dc3545; border: none; color: #ffffff; padding: 10px 20px; cursor: pointer;">로그아웃</button>
                                     <a href="#contact-section" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn">문의하기</a>
+                                    <a id="header-admin-btn" href="admin.html" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn" style="display: none; background: #6c757d; border: none; color: #ffffff; padding: 10px 20px;">관리자</a>
                                     <button id="menu-btn" aria-label="Menu" class="menu-btn menu ml--20 ml_sm--5">
                                         <img class="menu-light" src="assets/images/icons/01.svg" alt="Menu-icon">
                                     </button>
@@ -1227,8 +1229,10 @@
 
             <!-- 로그인 및 회원가입 버튼 -->
             <div class="mobile-menu-buttons" style="padding: 20px 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 20px;">
-                <a href="login.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px;">로그인</a>
-                <a href="register.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">회원가입</a>
+                <a id="mobile-login-btn" href="login.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px;">로그인</a>
+                <a id="mobile-register-btn" href="register.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">회원가입</a>
+                <button id="mobile-logout-btn" onclick="handleLogout()" class="rts-btn btn-primary" style="display: none; width: 100%; text-align: center; background: #dc3545; border: none; color: #ffffff; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px; cursor: pointer;">로그아웃</button>
+                <a id="mobile-admin-btn" href="admin.html" class="rts-btn btn-primary" style="display: none; width: 100%; text-align: center; background: #6c757d; border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">관리자</a>
             </div>
 
             <div class="social-wrapper-one" style="display: flex !important; justify-content: center !important; align-items: center !important; gap: 20px !important; padding: 20px 0 !important; margin-top: 20px !important; border-top: 1px solid rgba(255, 255, 255, 0.1) !important;">
@@ -1295,6 +1299,32 @@
     <script defer src="assets/js/plugins/contact.form.js"></script>
 
     <script defer src="assets/js/main.js"></script>
+    
+    <!-- 초기 상태 설정: 로그아웃 버튼과 관리자 버튼 숨기기 -->
+    <script>
+        (function() {
+            function setInitialButtonState() {
+                const logoutBtn = document.getElementById('header-logout-btn');
+                const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+                const adminBtn = document.getElementById('header-admin-btn');
+                const mobileAdminBtn = document.getElementById('mobile-admin-btn');
+                
+                if (logoutBtn) logoutBtn.style.display = 'none';
+                if (mobileLogoutBtn) mobileLogoutBtn.style.display = 'none';
+                if (adminBtn) adminBtn.style.display = 'none';
+                if (mobileAdminBtn) mobileAdminBtn.style.display = 'none';
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setInitialButtonState);
+            } else {
+                setInitialButtonState();
+            }
+        })();
+    </script>
+    
+    <script src="assets/js/auth-header.js"></script>
+    
     <script>
         // 앵커 링크 클릭 시 부드러운 스크롤 (즉시 실행 및 이벤트 위임)
         (function() {

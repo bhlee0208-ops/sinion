@@ -741,9 +741,11 @@
                                     <div class="loader-section section-right"></div>
                                 </div>
                                 <div class="button-area">
-                                    <a href="login.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 10px 20px;">로그인</a>
-                                    <a href="register.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 10px 20px;">회원가입</a>
+                                    <a id="header-login-btn" href="login.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 10px 20px;">로그인</a>
+                                    <a id="header-register-btn" href="register.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 10px 20px;">회원가입</a>
+                                    <button id="header-logout-btn" onclick="handleLogout()" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="display: none; background: #dc3545; border: none; color: #ffffff; padding: 10px 20px; cursor: pointer;">로그아웃</button>
                                     <a href="#contact-section" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn">문의하기</a>
+                                    <a id="header-admin-btn" href="admin.html" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn" style="display: none; background: #6c757d; border: none; color: #ffffff; padding: 10px 20px;">관리자</a>
                                     <button id="menu-btn" aria-label="Menu" class="menu-btn menu ml--20 ml_sm--5">
                                         <img class="menu-light" src="assets/images/icons/01.svg" alt="Menu-icon">
                                     </button>
@@ -770,13 +772,12 @@
                     <input type="text" name="name" class="form-control" placeholder="이름을 입력해주세요" required>
                 </div>
 
-                <!-- 아이디 -->
+                <!-- 이메일 -->
                 <div class="form-group">
                     <label class="form-label">
-                        아이디 <span class="required">*</span>
+                        이메일 <span class="required">*</span>
                     </label>
-                    <input type="text" name="username" class="form-control" placeholder="아이디를 입력해주세요" required>
-                    <p class="form-help-text">영문, 숫자 조합 4-20자</p>
+                    <input type="email" name="email" class="form-control" placeholder="이메일을 입력해주세요" required>
                 </div>
 
                 <!-- 비밀번호 -->
@@ -794,22 +795,6 @@
                         비밀번호 확인 <span class="required">*</span>
                     </label>
                     <input type="password" name="password_confirm" class="form-control" placeholder="비밀번호를 다시 입력해주세요" required>
-                </div>
-
-                <!-- 이메일 -->
-                <div class="form-group">
-                    <label class="form-label">
-                        이메일 <span class="required">*</span>
-                    </label>
-                    <input type="email" name="email" class="form-control" placeholder="이메일을 입력해주세요" required>
-                </div>
-
-                <!-- 연락처 -->
-                <div class="form-group">
-                    <label class="form-label">
-                        연락처 <span class="required">*</span>
-                    </label>
-                    <input type="tel" name="phone" class="form-control" placeholder="연락처를 입력해주세요" required>
                 </div>
 
                 <!-- 약관 동의 -->
@@ -1008,8 +993,10 @@
 
             <!-- 로그인 및 회원가입 버튼 -->
             <div class="mobile-menu-buttons" style="padding: 20px 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 20px;">
-                <a href="login.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px;">로그인</a>
-                <a href="register.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">회원가입</a>
+                <a id="mobile-login-btn" href="login.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px;">로그인</a>
+                <a id="mobile-register-btn" href="register.html" class="rts-btn btn-primary" style="display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">회원가입</a>
+                <button id="mobile-logout-btn" onclick="handleLogout()" class="rts-btn btn-primary" style="display: none; width: 100%; text-align: center; background: #dc3545; border: none; color: #ffffff; padding: 12px 20px; margin-bottom: 10px; border-radius: 8px; cursor: pointer;">로그아웃</button>
+                <a id="mobile-admin-btn" href="admin.html" class="rts-btn btn-primary" style="display: none; width: 100%; text-align: center; background: #6c757d; border: none; color: #ffffff; padding: 12px 20px; border-radius: 8px;">관리자</a>
             </div>
 
             <div class="social-wrapper-one">
@@ -1042,37 +1029,82 @@
     <script defer src="assets/js/plugins/contact.form.js"></script>
     <script defer src="assets/js/main.js"></script>
     
+    <!-- 초기 상태 설정: 로그아웃 버튼과 관리자 버튼 숨기기 -->
     <script>
+        (function() {
+            function setInitialButtonState() {
+                const logoutBtn = document.getElementById('header-logout-btn');
+                const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+                const adminBtn = document.getElementById('header-admin-btn');
+                const mobileAdminBtn = document.getElementById('mobile-admin-btn');
+                
+                if (logoutBtn) logoutBtn.style.display = 'none';
+                if (mobileLogoutBtn) mobileLogoutBtn.style.display = 'none';
+                if (adminBtn) adminBtn.style.display = 'none';
+                if (mobileAdminBtn) mobileAdminBtn.style.display = 'none';
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setInitialButtonState);
+            } else {
+                setInitialButtonState();
+            }
+        })();
+    </script>
+    
+    <script src="assets/js/auth-header.js"></script>
+    
+    <script type="module">
+        // Firebase SDK import
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        // Firebase 초기화
+        const firebaseConfig = {
+            apiKey: "AIzaSyBIPC1cb6Auw4JKmNbNjlvyYUwOYySvmqo",
+            authDomain: "sinion-29380.firebaseapp.com",
+            projectId: "sinion-29380",
+            storageBucket: "sinion-29380.firebasestorage.app",
+            messagingSenderId: "417218748288",
+            appId: "1:417218748288:web:cce20cdeefa181c32b6b65",
+            measurementId: "G-8NW54FCZ3R"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // 에러 메시지 한국어 변환
+        const getErrorMessage = (errorCode) => {
+            const errorMessages = {
+                'auth/invalid-email': '유효하지 않은 이메일 주소입니다.',
+                'auth/user-disabled': '사용할 수 없는 계정입니다.',
+                'auth/user-not-found': '등록되지 않은 사용자입니다.',
+                'auth/wrong-password': '비밀번호가 올바르지 않습니다.',
+                'auth/email-already-in-use': '이미 사용 중인 이메일입니다.',
+                'auth/weak-password': '비밀번호는 최소 6자 이상이어야 합니다.',
+                'auth/network-request-failed': '네트워크 오류가 발생했습니다.',
+                'auth/too-many-requests': '너무 많은 요청이 발생했습니다. 잠시 후 다시 시도해주세요.',
+                'auth/operation-not-allowed': '이 작업은 허용되지 않습니다.',
+                'auth/requires-recent-login': '보안을 위해 다시 로그인해주세요.'
+            };
+            return errorMessages[errorCode] || '오류가 발생했습니다. 다시 시도해주세요.';
+        };
+
         // 폼 제출 처리
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // 필수 필드 검증
-            const name = document.querySelector('input[name="name"]').value;
-            const username = document.querySelector('input[name="username"]').value;
+            const name = document.querySelector('input[name="name"]').value.trim();
             const password = document.querySelector('input[name="password"]').value;
             const passwordConfirm = document.querySelector('input[name="password_confirm"]').value;
-            const email = document.querySelector('input[name="email"]').value;
-            const phone = document.querySelector('input[name="phone"]').value;
+            const email = document.querySelector('input[name="email"]').value.trim();
             const privacyAgree = document.querySelector('input[name="privacy_agree"]');
             
             if (!name) {
                 alert('이름을 입력해주세요.');
-                return;
-            }
-            
-            if (!username) {
-                alert('아이디를 입력해주세요.');
-                return;
-            }
-            
-            if (!password) {
-                alert('비밀번호를 입력해주세요.');
-                return;
-            }
-            
-            if (password !== passwordConfirm) {
-                alert('비밀번호가 일치하지 않습니다.');
                 return;
             }
             
@@ -1081,8 +1113,18 @@
                 return;
             }
             
-            if (!phone) {
-                alert('연락처를 입력해주세요.');
+            if (!password) {
+                alert('비밀번호를 입력해주세요.');
+                return;
+            }
+            
+            if (password.length < 8) {
+                alert('비밀번호는 8자 이상이어야 합니다.');
+                return;
+            }
+            
+            if (password !== passwordConfirm) {
+                alert('비밀번호가 일치하지 않습니다.');
                 return;
             }
             
@@ -1091,19 +1133,58 @@
                 return;
             }
             
-            // TODO: Firebase Authentication 연동
-            // Firebase Auth를 사용하여 회원가입 처리
-            // 예시:
-            // import { createUserWithEmailAndPassword } from 'firebase/auth';
-            // const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            // 추가 정보(이름, 연락처 등)는 Firestore에 저장
+            // 제출 버튼 비활성화
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-light fa-spinner fa-spin"></i> 처리 중...';
             
-            // 백엔드 연결 전이므로 폼 데이터 확인만
-            const formData = new FormData(this);
-            console.log('Register Data:', Object.fromEntries(formData));
-            
-            alert('회원가입 기능은 Firebase Authentication 연결 후 구현됩니다.');
-            // this.reset();
+            try {
+                // Firebase Authentication으로 회원가입
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                
+                // 사용자 이름 업데이트
+                await updateProfile(userCredential.user, {
+                    displayName: name
+                });
+                
+                // 이메일 인증 메일 전송
+                await sendEmailVerification(userCredential.user);
+                
+                // 관리자 이메일 목록
+                const ADMIN_EMAILS = [
+                    'sprince1004@naver.com',
+                    'bhlee0208@gmail.com'
+                ];
+                
+                // 관리자 여부 확인
+                const isAdmin = ADMIN_EMAILS.includes(email.toLowerCase());
+                
+                // 추가 사용자 정보를 Firestore에 저장
+                try {
+                    await addDoc(collection(db, 'users'), {
+                        uid: userCredential.user.uid,
+                        name: name,
+                        email: email,
+                        createdAt: new Date(),
+                        role: isAdmin ? 'admin' : 'user'
+                    });
+                } catch (dbError) {
+                    console.error('사용자 정보 저장 오류:', dbError);
+                    // Firestore 저장 실패해도 계정은 생성되었으므로 계속 진행
+                }
+                
+                alert('회원가입이 완료되었습니다!\n이메일 인증을 완료해주세요.');
+                this.reset();
+                window.location.href = 'login.html';
+                
+            } catch (error) {
+                console.error('회원가입 오류:', error);
+                const errorMessage = getErrorMessage(error.code);
+                alert('회원가입 실패: ' + errorMessage);
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
         });
     </script>
 </body>
