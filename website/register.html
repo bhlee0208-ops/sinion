@@ -513,7 +513,7 @@
         }
         @media only screen and (max-width: 767px) {
             .logo-center {
-                max-height: 120px !important;
+                max-height: 240px !important;
             }
             /* 모바일에서 네비게이션 바 숨기기 */
             .header-main-one-wrapper .main-header .nav-area {
@@ -526,7 +526,21 @@
             /* 로고 영역에 상대 위치 지정 및 햄버거 버튼 여백 */
             .logo-center-wrapper {
                 position: relative !important;
-                padding-top: 80px !important;
+                padding-top: 120px !important;
+            }
+            /* 모바일에서 로고 크기 2배 */
+            .logo-center-wrapper .thumbnail .logo-center,
+            .logo-center-wrapper .thumbnail img.logo-center {
+                max-height: 240px !important;
+                height: auto !important;
+                width: auto !important;
+                transform: scale(2) !important;
+                transform-origin: center top !important;
+                margin-bottom: 40px !important;
+            }
+            /* 로고 영역 아래 여백 추가 */
+            .logo-center-wrapper .thumbnail {
+                margin-bottom: 40px !important;
             }
             /* 모바일 햄버거 버튼 - 로고 위에 배치 */
             .mobile-hamburger-btn {
