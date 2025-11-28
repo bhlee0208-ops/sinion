@@ -1,0 +1,1183 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="시니온(SINION) - 시니어를 위한 전문 교육 프로그램 및 케어 서비스. 시니어AI콘텐츠지도사, 회상미술지도사, 음악신체지도사 등 전문 강사 양성 및 시니어 프로그램 제공">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+    <title>시니온(SINION) - 시니어 전문 교육 프로그램</title>
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome.css">
+    <style>
+        /* Font Awesome 아이콘 강제 표시 - 최우선 적용 */
+        i.fa, i.fas, i.far, i.fal, i.fab, i.fad, i.fat, i[class*="fa-"],
+        .fa, .fas, .far, .fal, .fab, .fad, .fat, [class*="fa-"] {
+            font-family: "Font Awesome 6 Pro", "Font Awesome 5 Brands", "FontAwesome" !important;
+            font-style: normal !important;
+            font-weight: normal !important;
+            font-variant: normal !important;
+            text-transform: none !important;
+            line-height: 1 !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+            speak: none;
+            display: inline-block;
+        }
+        .fab, i.fab {
+            font-family: "Font Awesome 5 Brands" !important;
+            font-weight: 400 !important;
+        }
+        .fas, i.fas {
+            font-family: "Font Awesome 6 Pro" !important;
+            font-weight: 900 !important;
+        }
+        .fal, i.fal {
+            font-family: "Font Awesome 6 Pro" !important;
+            font-weight: 300 !important;
+        }
+        /* Font Awesome 아이콘 content 속성 강제 적용 */
+        .fa-instagram:before, i.fa-instagram:before, .fab.fa-instagram:before { content: "\f16d" !important; }
+        .fa-envelope:before, i.fa-envelope:before, .fal.fa-envelope:before { content: "\f0e0" !important; }
+        .fa-clock:before, i.fa-clock:before, .fal.fa-clock:before { content: "\f017" !important; }
+        .fa-comment:before, i.fa-comment:before, .fas.fa-comment:before { content: "\f075" !important; }
+        /* 스크롤 투 탑 버튼 숨기기 */
+        .progress-wrap {
+            display: none !important;
+        }
+        /* CTA 섹션의 플로팅 사각형 박스 숨기기 */
+        .rts-call-to-action-area-two * {
+            position: relative !important;
+        }
+        .rts-call-to-action-area-two::before,
+        .rts-call-to-action-area-two::after,
+        .rts-call-to-action-area-two .container-full::before,
+        .rts-call-to-action-area-two .container-full::after,
+        .rts-call-to-action-area-two .cta-style-two-area::before,
+        .rts-call-to-action-area-two .cta-style-two-area::after {
+            display: none !important;
+            content: none !important;
+        }
+        /* About 섹션의 shape-area 숨기기 */
+        .rts-about-area-two .shape-area {
+            display: none !important;
+        }
+        .rts-call-to-action-area-two [class*="shape"],
+        .rts-call-to-action-area-two [class*="box"],
+        .rts-call-to-action-area-two [class*="cube"],
+        .rts-call-to-action-area-two [class*="icon"],
+        .rts-call-to-action-area-two img[style*="position"],
+        .rts-call-to-action-area-two > * > * > * > img {
+            display: none !important;
+        }
+        .rts-call-to-action-area-two .container-full > *:last-child,
+        .rts-call-to-action-area-two .row > *:last-child > *:last-child {
+            position: relative !important;
+        }
+        .rts-call-to-action-area-two [style*="position: absolute"],
+        .rts-call-to-action-area-two [style*="position:fixed"] {
+            display: none !important;
+        }
+        /* 시니온 전문 교육 프로그램 섹션의 흰색 박스에 블루 네온 외곽선 적용 */
+        .rts-service-area .single-service-signle-wrapper {
+            border: 2px solid #0b4df5 !important;
+            box-shadow: 0 0 10px rgba(11, 77, 245, 0.5),
+                        0 0 20px rgba(11, 77, 245, 0.3),
+                        0 0 30px rgba(11, 77, 245, 0.2),
+                        inset 0 0 10px rgba(11, 77, 245, 0.1) !important;
+            border-radius: 15px !important;
+            transition: all 0.3s ease !important;
+        }
+        .rts-service-area .single-service-signle-wrapper:hover {
+            box-shadow: 0 0 15px rgba(11, 77, 245, 0.7),
+                        0 0 30px rgba(11, 77, 245, 0.5),
+                        0 0 45px rgba(11, 77, 245, 0.3),
+                        inset 0 0 15px rgba(11, 77, 245, 0.2) !important;
+            border-color: #1e5fff !important;
+        }
+        /* 식물 아이콘 이미지 크기 조정 */
+        .call-and-sign-area .sign-area img {
+            max-width: 80px !important;
+            width: 100% !important;
+            height: auto !important;
+        }
+        /* 인스타그램 이미지 왼쪽, 텍스트 오른쪽 배치 */
+        .footer-one-single-wized .body .update-wrapper {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 0 !important;
+            gap: 20px !important;
+        }
+        .footer-one-single-wized .body .update-wrapper > div:first-child {
+            flex-shrink: 0 !important;
+        }
+        .footer-one-single-wized .body .update-wrapper > div:last-child {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: flex-end !important;
+        }
+        .footer-one-single-wized .body .update-wrapper a {
+            display: block !important;
+        }
+        .footer-one-single-wized .body .update-wrapper img {
+            max-width: 120px !important;
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+        }
+        .footer-one-single-wized .body .update-wrapper .disc {
+            text-align: right !important;
+            color: #fff !important;
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            margin: 0 !important;
+        }
+        /* 로고 가운데 크게 배치 및 네비게이션 아래 배치 */
+        .header-main-one-wrapper {
+            flex-direction: column !important;
+            align-items: center !important;
+            padding: 20px 0 !important;
+        }
+        .logo-center-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logo-center-wrapper .thumbnail {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo-center-wrapper .thumbnail a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo-center {
+            max-height: 180px !important;
+            width: auto !important;
+            height: auto !important;
+        }
+        .header-main-one-wrapper .main-header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            gap: 30px;
+        }
+        .header-main-one-wrapper .main-header .nav-area {
+            margin-right: 0 !important;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .header-main-one-wrapper .main-header .nav-area ul {
+            justify-content: center;
+            align-items: center;
+        }
+        .header-main-one-wrapper .main-header .nav-area ul li.main-nav {
+            padding: 20px 0 !important;
+        }
+        /* 상단 네비게이션 폰트 크기 키우기 */
+        .header-main-one-wrapper .main-header .nav-area ul li.main-nav > a {
+            font-size: 18px !important;
+            font-weight: 500 !important;
+        }
+        .header-main-one-wrapper .main-header .button-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+        @media only screen and (max-width: 1199px) {
+            .logo-center {
+                max-height: 150px !important;
+            }
+            .header-main-one-wrapper .main-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .header-main-one-wrapper .main-header .nav-area {
+                width: 100%;
+            }
+            .header-main-one-wrapper .main-header .button-area {
+                justify-content: center;
+            }
+        }
+        @media only screen and (max-width: 767px) {
+            .logo-center {
+                max-height: 120px !important;
+            }
+        }
+    </style>
+    <link rel="stylesheet preload" href="assets/css/plugins/swiper.css" as="style">
+    <link rel="stylesheet preload" href="assets/css/plugins/metismenu.css" as="style">
+    <link rel="stylesheet preload" href="assets/css/plugins/magnifying-popup.css" as="style">
+    <link rel="stylesheet preload" href="assets/css/plugins/odometer.css" as="style">
+    <link rel="stylesheet preload" href="assets/css/vendor/bootstrap.min.css" as="style">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/images/banner/21.webp" />
+    <link rel="stylesheet preload" href="assets/css/style.css" as="style">
+    <style>
+        *:not(.fa):not(.fas):not(.far):not(.fal):not(.fab):not(.fad):not(.fat):not([class*="fa-"]) { font-family: 'Noto Sans KR', sans-serif !important; }
+        .fa, .fas, .far, .fal, .fab, .fad, .fat, [class*="fa-"], i.fa, i.fas, i.far, i.fal, i.fab, i.fad, i.fat, i[class*="fa-"] { font-family: "Font Awesome 6 Pro", "Font Awesome 5 Brands", "FontAwesome" !important; font-style: normal !important; font-weight: normal !important; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body, html {
+            font-family: 'Noto Sans KR', sans-serif !important;
+        }
+        h1, h2, h3, h4, h5, h6, p, div, span, a, li, td, th, input, textarea, select, button, label {
+            font-family: 'Noto Sans KR', sans-serif !important;
+        }
+        /* 네비게이션 및 버튼 폰트 강제 적용 */
+        .nav-area ul li a, .nav-area ul li, .main-nav, .main-nav > a, .main-nav a,
+        .submenu, .submenu li, .submenu li a, .submenu a,
+        .top-nav, .top-nav li, .top-nav li a,
+        .mainmenu, .mainmenu li, .mainmenu li a,
+        .rts-btn, .rts-btn *, button, .btn, .btn-primary, .btn-white,
+        .banner-inner-two-content .pre-title, .banner-inner-two-content .pre-title span,
+        .banner-inner-two-content .title, .banner-inner-two-content .disc,
+        .banner-inner-two-content p {
+            font-family: 'Noto Sans KR', sans-serif !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+            text-rendering: optimizeLegibility !important;
+        }
+        /* 푸터 빠른 링크 텍스트 색상 진하게 */
+        .footer-two .footer-one-single-wized .quick-link-inner .links li a {
+            color: #E0E0E0 !important;
+            font-weight: 500 !important;
+        }
+        .footer-two .footer-one-single-wized .quick-link-inner .links li a:hover {
+            color: #ffffff !important;
+        }
+        #contact-section {
+            scroll-margin-top: 100px !important;
+        }
+        .footer-two .footer-one-single-wized .quick-link-inner .links li a i {
+            color: #E0E0E0 !important;
+        }
+        .footer-two .footer-one-single-wized .quick-link-inner .links li a:hover i {
+            color: #ffffff !important;
+        }
+        /* 인사말 섹션과 푸터 사이 여백 추가 */
+        .business-goal-area-2 {
+            margin-bottom: 100px !important;
+            padding-bottom: 80px !important;
+        }
+        /* 시니온 소개 섹션과 지도 섹션 사이 여백 추가 */
+        .rts-about-area-two {
+            margin-bottom: 250px !important;
+            padding-bottom: 150px !important;
+        }
+        .rts-footer-area.footer-two {
+            margin-top: 250px !important;
+            padding-top: 150px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header-one header--sticky">
+        <div class="header-top-area-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-top-one-wrapper">
+                            <div class="left">
+                                <div class="mail">
+                                    <a href="mailto:senioron@hanmail.net"><i class="fal fa-envelope"></i>
+                                        senioron@hanmail.net</a>
+                                </div>
+                                <div class="working-time">
+                                    <p><i class="fal fa-clock"></i> 운영시간: 평일 10:00 - 17:00</p>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <ul class="social-wrapper-one">
+                                    <li><a href="https://www.instagram.com/The-Sinion" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> 인스타 : The-Sinion</a></li>
+                                    <li><a href="https://pf.kakao.com/_시니온SINION" target="_blank" rel="noopener noreferrer"><i class="fas fa-comment"></i> 카카오톡채널 : 시니온 (SINION)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-main-one-wrapper">
+                            <div class="logo-center-wrapper">
+                                <div class="thumbnail">
+                                    <a href="index.html">
+                                        <img src="assets/images/logo/logo.png" alt="시니온 로고" class="logo-center">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="main-header">
+                                <div class="nav-area">
+                                    <ul class="">
+                                        <li class="main-nav">
+                                            <a href="index.html">시니온 소개</a>
+                                        </li>
+                                        <li class="main-nav has-dropdown project-a-after">
+                                            <a href="academy.html">교육 아카데미</a>
+                                            <ul class="submenu parent-nav">
+                                                <li><a href="academy.html#ai-content">시니어AI콘텐츠지도사</a></li>
+                                                <li><a href="academy.html#art">시니어회상미술지도사</a></li>
+                                                <li><a href="academy.html#music">시니어음악신체지도사</a></li>
+                                                <li><a href="academy.html#clean">시니어클린케어마스터</a></li>
+                                                <li><a href="academy.html#emotion">시니어감정소통전문가</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="main-nav has-dropdown project-a-after">
+                                            <a href="program.html">프로그램</a>
+                                            <ul class="submenu parent-nav">
+                                                <li><a href="program-music.html">추억음악</a></li>
+                                                <li><a href="program-art.html">회상미술</a></li>
+                                                <li><a href="program-physical.html">신체활동</a></li>
+                                                <li><a href="program-emotion.html">감정회상</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="main-nav">
+                                            <a href="contact.html#education">교육신청문의</a>
+                                        </li>
+                                        <li class="main-nav has-dropdown project-a-after">
+                                            <a href="news.html">시니온소식</a>
+                                            <ul class="submenu parent-nav">
+                                                <li><a href="news.html#notice">공지사항</a></li>
+                                                <li><a href="news.html#gallery">포토갤러리</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                                <div class="loader-wrapper">
+                                    <div class="loader">
+                                    </div>
+                                    <div class="loader-section section-left"></div>
+                                    <div class="loader-section section-right"></div>
+                                </div>
+                                <div class="button-area">
+                                    <a href="login.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: transparent; border: 2px solid #0b4df5; color: #0b4df5; padding: 10px 20px;">로그인</a>
+                                    <a href="register.html" class="rts-btn btn-primary ml--10 ml_sm--5 header-one-btn" style="background: linear-gradient(135deg, #0b4df5 0%, #2563eb 100%); border: none; color: #ffffff; padding: 10px 20px;">회원가입</a>
+                                    <a href="#contact-section" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn">문의하기</a>
+                                    <button id="menu-btn" aria-label="Menu" class="menu-btn menu ml--20 ml_sm--5">
+                                        <img class="menu-light" src="assets/images/icons/01.svg" alt="Menu-icon">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="banner-swiper-two">
+        <div class="swiper mySwiper-banner-two">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <!-- rts banner area start -->
+                    <div class="rts-banner-area-two rts-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-inner-two-content">
+                                        <p class="pre-title"><span>시니온에 오신 것을 환영합니다!</span> 시니어를 위한 전문 교육 프로그램</p>
+                                        <h1 class="title">시니어의 행복한 삶을 위한 <br> 전문 교육 프로그램</h1>
+                                        <p class="disc">
+                                            시니어AI콘텐츠지도사, 회상미술지도사, 음악신체지도사 등 전문 강사 양성과
+                                            시니어를 위한 맞춤형 프로그램을 제공합니다.
+                                        </p>
+                                        <a href="academy.html" class="rts-btn btn-primary btn-white">교육 프로그램 보기</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shape-area-start">
+                            <div class="shape shape-one">
+                                <img loading="lazy" src="assets/images/banner/shape/01.webp" alt="shape-area">
+                            </div>
+                            <div class="shape shape-two">
+                                <img loading="lazy" src="assets/images/banner/shape/02.webp" alt="shape-area">
+                            </div>
+                            <div class="shape shape-three">
+                                <img loading="lazy" src="assets/images/banner/shape/03.webp" alt="shape-area">
+                            </div>
+                            <div class="shape shape-four">
+                                <img loading="lazy" src="assets/images/banner/shape/04.webp" alt="shape-area">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- rts banner area end -->
+                </div>
+                <div class="swiper-slide">
+                    <!-- rts banner area start -->
+                    <div class="rts-banner-area-two two rts-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-inner-two-content">
+                                        <p class="pre-title"><span>전문 강사 양성</span> 시니어 교육 전문가가 되세요</p>
+                                        <h1 class="title">시니어 전문 강사 자격증 <br> 취득 프로그램</h1>
+                                        <p class="disc">
+                                            체계적인 교육 과정을 통해 전문 강사 자격을 취득하고
+                                            시니어 교육 분야에서 전문가로 활동할 수 있습니다.
+                                        </p>
+                                        <a href="academy.html" class="rts-btn btn-primary btn-white">자격증 프로그램 보기</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shape-area-start">
+                            <div class="shape shape-one">
+                                <img loading="lazy" src="assets/images/banner/shape/01.webp" alt="">
+                            </div>
+                            <div class="shape shape-two">
+                                <img loading="lazy" src="assets/images/banner/shape/02.webp" alt="">
+                            </div>
+                            <div class="shape shape-three">
+                                <img loading="lazy" src="assets/images/banner/shape/03.webp" alt="">
+                            </div>
+                            <div class="shape shape-four">
+                                <img loading="lazy" src="assets/images/banner/shape/04.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- rts banner area end -->
+                </div>
+                <div class="swiper-slide">
+                    <!-- rts banner area start -->
+                    <div class="rts-banner-area-two three rts-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-inner-two-content">
+                                        <p class="pre-title"><span>시니어 프로그램</span> 건강하고 행복한 노년을 위한 활동</p>
+                                        <h1 class="title">추억음악, 회상미술, 신체활동 <br> 감정회상 프로그램</h1>
+                                        <p class="disc">
+                                            시니어의 정서 안정과 신체 건강을 위한 전문 프로그램으로
+                                            인지 기능 향상과 삶의 질 개선을 지원합니다.
+                                        </p>
+                                        <a href="program.html" class="rts-btn btn-primary btn-white">프로그램 보기</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shape-area-start">
+                            <div class="shape shape-one">
+                                <img loading="lazy" src="assets/images/banner/shape/01.webp" alt="">
+                            </div>
+                            <div class="shape shape-two">
+                                <img loading="lazy" src="assets/images/banner/shape/02.webp" alt="">
+                            </div>
+                            <div class="shape shape-three">
+                                <img loading="lazy" src="assets/images/banner/shape/03.webp" alt="">
+                            </div>
+                            <div class="shape shape-four">
+                                <img loading="lazy" src="assets/images/banner/shape/04.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- rts banner area end -->
+                </div>
+            </div>
+            <div class="swiper-button-next"><i class="fa-light fa-chevron-right"></i></div>
+            <div class="swiper-button-prev"><i class="fa-light fa-chevron-left"></i></div>
+        </div>
+    </div>
+
+
+
+    <!-- rts business goal area start -->
+    <div class="business-goal-area-2 rts-section-gap" style="position: relative; overflow: hidden;">
+        <!-- 은은한 해바라기 배경 -->
+        <div class="sunflower-background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.25; pointer-events: none; overflow: hidden;">
+            <div style="position: absolute; top: 10%; left: 8%; font-size: 45px; color: #FFB800; transform: rotate(-15deg); opacity: 0.85;">🌻</div>
+            <div style="position: absolute; top: 20%; right: 10%; font-size: 50px; color: #FFB800; transform: rotate(20deg); opacity: 0.8;">🌻</div>
+            <div style="position: absolute; bottom: 15%; left: 10%; font-size: 42px; color: #FFB800; transform: rotate(10deg); opacity: 0.85;">🌻</div>
+            <div style="position: absolute; bottom: 25%; right: 8%; font-size: 48px; color: #FFB800; transform: rotate(-25deg); opacity: 0.8;">🌻</div>
+            <div style="position: absolute; top: 50%; left: 5%; font-size: 40px; color: #FFB800; transform: rotate(15deg); opacity: 0.82;">🌻</div>
+            <div style="position: absolute; top: 35%; right: 5%; font-size: 52px; color: #FFB800; transform: rotate(-10deg); opacity: 0.8;">🌻</div>
+            <div style="position: absolute; bottom: 40%; right: 12%; font-size: 44px; color: #FFB800; transform: rotate(28deg); opacity: 0.82;">🌻</div>
+            <div style="position: absolute; top: 60%; left: 12%; font-size: 38px; color: #FFB800; transform: rotate(-18deg); opacity: 0.8;">🌻</div>
+            <div style="position: absolute; bottom: 50%; right: 15%; font-size: 46px; color: #FFB800; transform: rotate(22deg); opacity: 0.85;">🌻</div>
+        </div>
+        <div class="container pt--30" style="position: relative; z-index: 1;">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="consultancy-style-one">
+                        <div class="title-style-two mb--40 left">
+                            <span class="bg-content">인사말</span>
+                            <span class="pre">Greeting</span>
+                            <h2 class="title rts-text-anime-style-1">시니온(Sinion) <br>
+                                시니어 전문 교육 브랜드
+                            </h2>
+                        </div>
+                        <div class="signle-consultancy mb--30">
+                            <div class="icon">
+                                <img loading="lazy" src="assets/images/about/icons/01.svg" alt="">
+                            </div>
+                            <div class="information">
+                                <h4 class="title">시니온의 의미</h4>
+                                <p class="disc">
+                                    시니온(Sinion)은 시니어(Senior) + 따뜻한 온기(溫氣) + '나를 켜다(On)'의 의미를 담은 이름으로, 
+                                    어르신의 삶에 따뜻한 빛과 기억을 다시 켜드리는 시니어 전문 교육 브랜드입니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="signle-consultancy">
+                            <div class="icon">
+                                <img loading="lazy" src="assets/images/about/icons/02.svg" alt="">
+                            </div>
+                            <div class="information">
+                                <h4 class="title">대표 인사말</h4>
+                                <p class="disc">
+                                    저는 시니온 대표로서, 시니어의 삶과 감정, 기억을 존중하는 따뜻한 감성의 해바라기 강사, 
+                                    그리고 시니어 생애주기·감정소통 전문가입니다. 경기도 경제단체에서 경기도 지원사업 기획·운영 경력과 
+                                    한국뉴시니어지도사협회 수료 등 다양한 교육 자격과 현장 경험을 바탕으로 내 생애 주기 가장 빛났던 업적, 
+                                    기억을 회상, 추억하며 어르신들에게 진심을 전하는 치매 예방 인지 교육을 이어가고 있습니다.
+                                </p>
+                                <p class="disc" style="margin-top: 20px; font-weight: 600; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+                                    시니온 해바라기 강사 이보혜 ( 李 輔 蹊 )
+                                    <img src="assets/images/about/signature-icon.png" alt="시니온 아이콘" style="width: 40px; height: auto; display: inline-block; vertical-align: middle;">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="thumbnail-business-area-right-two">
+                        <div class="large-thumbnail">
+                            <img loading="lazy" src="assets/images/business-goal/02.webp" alt="">
+                        </div>
+                        <div class="small-thumbnail images-r">
+                            <img loading="lazy" src="assets/images/business-goal/01.webp" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- rts business goal area end -->
+    </div>
+
+    <!-- rts service area start -->
+    <div class="rts-service-area pt--40 pb--60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-style-two center">
+                        <span class="bg-content">교육 프로그램</span>
+                        <span class="pre">Education Programs</span>
+                        <h2 class="title rts-text-anime-style-1">시니온 전문 교육 프로그램
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-2 mt--30">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="service-bg-style-one-wrapper">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="service-style-swiper-wrapper-two">
+                                    <div class="swiper mySwiper-service-1">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="single-service-signle-wrapper">
+                                                    <div class="icons">
+                                                        <img loading="lazy" src="assets/images/service/icons/01.svg" alt="service">
+                                                    </div>
+                                                    <div class="information">
+                                                        <h5 class="title">시니어AI콘텐츠지도사</h5>
+                                                        <p class="disc">
+                                                            생성형AI를 활용한 디지털 콘텐츠 프로그램 기획 및 운영
+                                                            시니어의 디지털 능력 향상과 창의력 개발
+                                                        </p>
+                                                        <a href="academy.html" class="arrow-right">
+                                                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                                            <span>자세히 보기</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="single-service-signle-wrapper">
+                                                    <div class="icons">
+                                                        <img loading="lazy" src="assets/images/service/icons/02.svg" alt="service">
+                                                    </div>
+                                                    <div class="information">
+                                                        <h5 class="title">시니어회상미술지도사</h5>
+                                                        <p class="disc">
+                                                            창의·기억회상 중심 미술 치매예방 프로그램 운영
+                                                            정서 안정, 인지 기능 활성화, 손·뇌 협응력 향상
+                                                        </p>
+                                                        <a href="academy.html" class="arrow-right">
+                                                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                                            <span>자세히 보기</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="single-service-signle-wrapper">
+                                                    <div class="icons">
+                                                        <img loading="lazy" src="assets/images/service/icons/03.svg" alt="service">
+                                                    </div>
+                                                    <div class="information">
+                                                        <h5 class="title">시니어음악신체지도사</h5>
+                                                        <p class="disc">
+                                                            음악과 신체활동을 결합한 시니어 맞춤형 프로그램
+                                                            신체 건강과 정서 안정을 동시에 지원
+                                                        </p>
+                                                        <a href="academy.html" class="arrow-right">
+                                                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                                            <span>자세히 보기</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="single-service-signle-wrapper">
+                                                    <div class="icons">
+                                                        <img loading="lazy" src="assets/images/service/icons/01.svg" alt="service">
+                                                    </div>
+                                                    <div class="information">
+                                                        <h5 class="title">시니어감정소통전문가</h5>
+                                                        <p class="disc">
+                                                            감정카드, 색채표현 등 감정표현 기법 활용
+                                                            시니어세대와의 관계개선을 위한 맞춤형 소통 프로그램
+                                                        </p>
+                                                        <a href="academy.html" class="arrow-right">
+                                                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                                            <span>자세히 보기</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-pagination"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts service area end -->
+
+
+    <!-- rts call to action area start -->
+    <div class="rts-call-to-action-area-two bg_image">
+        <div class="container-full">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="cta-style-two-area">
+                                    <h3 class="title rts-text-anime-style-1">
+                                        시니어의 행복한 삶을 위한 전문 교육 프로그램에 <br>
+                                        함께 참여하세요
+                                    </h3>
+                                    <a href="#contact-section" class="rts-btn btn-primary btn-white">문의하기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rts call to action area end -->
+
+    <!-- rts about area start -->
+    <div class="rts-about-area-two rts-section-gap">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="left-thumbnail-about-area-two">
+                        <img loading="lazy" src="assets/images/about/04.webp" alt="about">
+                        <div class="small-image">
+                            <img loading="lazy" src="assets/images/about/05.webp" alt="small">
+                        </div>
+                        <div class="counter-about-area">
+                            <h2 class="counter title"><span class="odometer" data-count="25">00</span>+
+                            </h2>
+                            <span>년의 경험</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt_sm--80 mt_md--80">
+                    <div class="about-inner-content-two">
+                        <div class="title-style-two left">
+                            <span class="bg-content">시니온 소개</span>
+                            <span class="pre">About Sinion</span>
+                            <h2 class="title rts-text-anime-style-1">시니어의 행복한 삶을 위한 <br> 전문 교육 프로그램 제공
+                            </h2>
+                        </div>
+                        <div class="about-between-wrapper">
+                            <p class="disc">
+                                시니온은 시니어를 위한 전문 교육 프로그램을 제공하는 기관입니다.
+                                시니어AI콘텐츠지도사, 회상미술지도사, 음악신체지도사 등 전문 강사 양성과
+                                시니어를 위한 맞춤형 프로그램을 통해 건강하고 행복한 노년을 지원합니다.
+                            </p>
+                            <div class="check-wrapper-area">
+                                <div class="single-check">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <p>전문 강사 자격증 프로그램</p>
+                                </div>
+                                <div class="single-check">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <p>시니어 맞춤형 교육 프로그램</p>
+                                </div>
+                                <div class="single-check">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <p>체계적인 교육 커리큘럼</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="call-and-sign-area two">
+                            <div class="call-area">
+                                <div class="icon">
+                                    <i class="fa-sharp fa-regular fa-phone-volume"></i>
+                                </div>
+                                <div class="information">
+                                    <span>언제든지 문의하세요</span>
+                                    <a href="tel:0502-1925-3259">
+                                        <h6 class="title">0502-1925-3259</h6>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="sign-area">
+                                <img loading="lazy" src="assets/images/about/plant-icon.png" alt="시니온 아이콘" style="max-width: 80px; width: 100%; height: auto;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- shape-area 제거됨 -->
+        <!-- <div class="shape-area">
+            <img loading="lazy" src="assets/images/about/shape/01.svg" alt="shape" class="one">
+            <img loading="lazy" src="assets/images/about/shape/02.svg" alt="shape" class="two">
+        </div> -->
+    </div>
+    <!-- rts about area end -->
+
+    <!-- rts footer two area wrapper -->
+    <div class="rts-footer-area footer-two mt-dec-footer-map bg-footer-two bg_image">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="map-area-main-wrapper">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="map-area-main-footer-two">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1588.9688791311648!2d127.06937156839318!3d37.2017077750174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b443a7dfa0605%3A0x36e55dc069c46d91!2z6rK96riw64-EIO2ZlOyEseyLnCDrqZTtg4Dtj7TrpqzsiqTroZwgNDI!5e0!3m2!1sko!2skr!4v1764297711202!5m2!1sko!2skr" width="625" height="625" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="시니온 위치"></iframe>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="map-information-2-footer" id="contact-section">
+                                    <h5 class="title-main">문의하기</h5>
+                                    <img loading="lazy" src="assets/images/footer/02.svg" alt="line" class="line">
+                                    <div class="contact-information-main-wrapper">
+                                        <div class="signle-contact-information">
+                                            <div class="icon">
+                                                <i class="fa-solid fa-phone"></i>
+                                            </div>
+                                            <div class="information-wrapper">
+                                                <span>전화 문의</span>
+                                                <a href="tel:0502-1925-3259">
+                                                    <h6 class="title">0502-1925-3259</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="signle-contact-information">
+                                            <div class="icon">
+                                                <i class="fa-regular fa-envelope"></i>
+                                            </div>
+                                            <div class="information-wrapper">
+                                                <span>이메일 문의</span>
+                                                <a href="mailto:senioron@hanmail.net">
+                                                    <h6 class="title">senioron@hanmail.net</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="signle-contact-information">
+                                            <div class="icon">
+                                                <i class="fa-sharp fa-solid fa-location-dot"></i>
+                                            </div>
+                                            <div class="information-wrapper">
+                                                <span>운영시간</span>
+                                                <a href="#">
+                                                    <h6 class="title">평일 10:00 - 17:00</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container bg-shape-f1">
+            <!-- rts footer area -->
+            <div class="row pt--120 pt_sm--80 pb--80 pb_sm--40">
+
+                <div class="col-xl-4 col-md-6 col-sm-12 col-12">
+                    <div class="footer-one-single-wized mid-bg">
+                        <div class="wized-title">
+                            <h5 class="title">회사 주소</h5>
+                            <img loading="lazy" src="assets/images/footer/01.svg" alt="finbiz_footer">
+                        </div>
+                        <div class="opening-time-inner">
+                            <div class="single-opening">
+                                <p class="day"><i class="fa-sharp fa-solid fa-location-dot"></i></p>
+                                <p class="time">경기도 화성시 메티폴리스로42, 902동<br>(동탄 반송동, 디앤씨빌딩)</p>
+                            </div>
+                            <div class="single-opening">
+                                <p class="day"><i class="fa-solid fa-phone"></i></p>
+                                <p class="time">0502-1925-3259</p>
+                            </div>
+                            <div class="single-opening mb--30 mb_sm--10">
+                                <p class="day"><i class="fa-regular fa-envelope"></i></p>
+                                <p class="time">senioron@hanmail.net</p>
+                            </div>
+                            <a href="contact.html" class="rts-btn btn-primary btn-white">문의하기</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer mid area end -->
+                <div class="col-xl-4 col-md-6 col-sm-12 col-12 pl--50 pl_sm--15">
+                    <div class="footer-one-single-wized">
+                        <div class="wized-title">
+                            <h5 class="title">빠른 링크</h5>
+                            <img loading="lazy" src="assets/images/footer/01.svg" alt="finbiz_footer">
+                        </div>
+                        <div class="quick-link-inner">
+                            <ul class="links">
+                                <li><a href="about.html"><i class="far fa-arrow-right"></i> 시니온 소개</a></li>
+                                <li><a href="academy.html"><i class="far fa-arrow-right"></i> 교육 아카데미</a></li>
+                                <li><a href="program.html"><i class="far fa-arrow-right"></i> 프로그램</a></li>
+                                <li><a href="contact.html"><i class="far fa-arrow-right"></i> 문의하기</a></li>
+                                <li><a href="news.html"><i class="far fa-arrow-right"></i> 시니온소식</a></li>
+                            </ul>
+                            <ul class="links margin-left-70">
+                                <li><a href="faq.html"><i class="far fa-arrow-right"></i> 자주묻는질문</a></li>
+                                <li><a href="academy.html"><i class="far fa-arrow-right"></i> 전문강사 신청</a></li>
+                                <li><a href="about.html#location"><i class="far fa-arrow-right"></i> 오시는 길</a></li>
+                                <li><a href="news.html"><i class="far fa-arrow-right"></i> 공지사항</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer mid area -->
+
+                <!-- footer end area post -->
+                <div class="col-xl-4 col-md-6 col-sm-12 col-12">
+                    <div class="footer-one-single-wized margin-left-65">
+                        <div class="wized-title">
+                            <h5 class="title">인스타그램</h5>
+                            <img loading="lazy" src="assets/images/footer/01.svg" alt="finbiz_footer">
+                        </div>
+                        <div class="body">
+                            <div class="update-wrapper" style="padding: 0; display: flex; flex-direction: row; justify-content: space-between; align-items: center; min-height: 200px; gap: 20px;">
+                                <div style="flex-shrink: 0;">
+                                    <a href="https://www.instagram.com/The-Sinion" target="_blank" rel="noopener noreferrer" style="display: block;">
+                                        <img src="assets/images/footer/instagram-qr.png" alt="시니온 인스타그램 QR 코드" style="max-width: 120px; width: 100%; height: auto; border-radius: 8px; display: block;">
+                                    </a>
+                                </div>
+                                <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-end;">
+                                    <p class="disc" style="color: #fff; font-size: 16px; font-weight: 500; margin: 0; text-align: right;">@THE_SINION</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer end area post end-->
+            </div>
+            <!-- rts footer area End -->
+        </div>
+        <!-- 시니온 하단 로고 및 한국여성경제인협회 로고 -->
+        <div class="container" style="padding: 0 0 10px 0; margin-top: -40px;">
+            <div class="d-flex align-items-center justify-content-center" style="gap: 40px;">
+                <img src="assets/images/footer/sinion하단.png" alt="시니온" style="max-height: 140px; height: 140px; width: auto; flex-shrink: 0; object-fit: contain;">
+                <img src="assets/images/footer/한국여성경제인협회_로고.png" alt="한국여성경제인협회" style="max-height: 70px; height: 70px; width: auto; flex-shrink: 0; object-fit: contain;">
+            </div>
+        </div>
+        <!-- copyright area start -->
+        <div class="rts-copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="text-center">
+                            <p>시니온(SINION) - Copyright
+                                <script>
+                                    document.write(
+                                        new Date().getFullYear()
+                                    )
+                                </script>. All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- copyright area end -->
+    </div>
+    <!-- rts footer two area wrapper end -->
+
+
+
+    <div id="side-bar" class="side-bar header-two">
+        <button class="close-icon-menu" title="Close menu"><i class="far fa-times"></i></button>
+        <!-- inner menu area desktop start -->
+        <div class="rts-sidebar-menu-desktop">
+            <a class="logo-1" href="index.html"><img class="logo" src="assets/images/logo/logo.png" alt="시니온 로고" style="max-height: 120px; width: auto;"></a>
+            <div class="body d-none d-xl-block">
+                <p class="disc">
+                    시니온은 시니어를 위한 전문 교육 프로그램을 제공하는 기관입니다. 
+                    시니어의 삶의 질 향상과 사회 참여를 위한 다양한 교육 프로그램과 전문 강사 양성 과정을 운영하고 있습니다.
+                </p>
+                <div class="get-in-touch">
+                    <!-- title -->
+                    <div class="h6 title">연락처</div>
+                    <!-- title End -->
+                    <div class="wrapper">
+                        <!-- single -->
+                        <div class="single">
+                            <i class="fal fa-envelope"></i>
+                            <a href="mailto:senioron@hanmail.net">senioron@hanmail.net</a>
+                        </div>
+                        <!-- single ENd -->
+                        <!-- single -->
+                        <div class="single">
+                            <i class="fal fa-clock"></i>
+                            <a href="#">운영시간: 평일 10:00 - 17:00</a>
+                        </div>
+                        <!-- single ENd -->
+                        <!-- single -->
+                        <div class="single">
+                            <i class="fab fa-instagram"></i>
+                            <a href="https://www.instagram.com/The-Sinion" target="_blank" rel="noopener noreferrer">인스타그램: The-Sinion</a>
+                        </div>
+                        <!-- single ENd -->
+                        <!-- single -->
+                        <div class="single">
+                            <i class="fas fa-comment"></i>
+                            <a href="https://pf.kakao.com/_시니온SINION" target="_blank" rel="noopener noreferrer">카카오톡 채널: 시니온 (SINION)</a>
+                        </div>
+                        <!-- single ENd -->
+                    </div>
+                    <div class="social-wrapper-two menu">
+                        <a href="https://www.instagram.com/The-Sinion" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://pf.kakao.com/_시니온SINION" target="_blank" rel="noopener noreferrer" aria-label="KakaoTalk"><i class="fas fa-comment"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- mobile menu area start -->
+        <div class="mobile-menu d-block d-xl-none">
+            <nav class="nav-main mainmenu-nav mt--30">
+                <ul class="mainmenu metismenu" id="mobile-menu-active">
+                    <li>
+                        <a href="index.html" class="main" aria-expanded="false">시니온 소개</a>
+                    </li>
+                    <li class="has-droupdown">
+                        <a href="#" class="main" aria-expanded="false">교육 아카데미</a>
+                        <ul class="submenu mm-collapse" style="height: 0px;">
+                            <li><a href="academy.html#ai-content">시니어AI콘텐츠지도사</a></li>
+                            <li><a href="academy.html#art">시니어회상미술지도사</a></li>
+                            <li><a href="academy.html#music">시니어음악신체지도사</a></li>
+                            <li><a href="academy.html#clean">시니어클린케어마스터</a></li>
+                            <li><a href="academy.html#emotion">시니어감정소통전문가</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-droupdown">
+                        <a href="#" class="main" aria-expanded="false">프로그램</a>
+                        <ul class="submenu mm-collapse" style="height: 0px;">
+                            <li><a href="program-music.html">추억음악</a></li>
+                            <li><a href="program-art.html">회상미술</a></li>
+                            <li><a href="program-physical.html">신체활동</a></li>
+                            <li><a href="program-emotion.html">감정회상</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="contact.html#education" class="main">교육신청문의</a>
+                    </li>
+                    <li class="has-droupdown">
+                        <a href="#" class="main" aria-expanded="false">시니온소식</a>
+                        <ul class="submenu mm-collapse" style="height: 0px;">
+                            <li><a href="news.html#notice">공지사항</a></li>
+                            <li><a href="news.html#gallery">포토갤러리</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="social-wrapper-one">
+                <ul>
+                    <li>
+                        <a href="#" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="youtube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" aria-label="linkedin">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- mobile menu area end -->
+    </div>
+    <!-- inner menu area desktop End -->
+
+
+    <!-- offcanvase search -->
+    <div class="search-input-area">
+        <div class="container">
+            <div class="search-input-inner">
+                <div class="input-div">
+                    <input class="search-input autocomplete" type="text" placeholder="키워드로 검색">
+                    <button><i class="far fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="close" class="search-close-icon"><i class="far fa-times"></i></div>
+    </div>
+    <div id="anywhere-home" class="">
+    </div>
+
+    <!-- rtl btn area start -->
+    <!-- RTL/LTR 전환 버튼 제거됨 -->
+    <!-- <div class="rtl-ltr-switcher-btn">
+        <span class="rtl show">View RTL</span>
+        <span class="ltr">View LTR</span>
+    </div> -->
+    <!-- rtl btn area end -->
+
+    <!-- progress area start -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+            </path>
+        </svg>
+    </div>
+    <!-- progress area end -->
+
+    <script defer src="assets/js/plugins/jquery.js"></script>
+
+    <script defer src="assets/js/plugins/odometer.js"></script>
+    <script defer src="assets/js/plugins/jquery-appear.js"></script>
+
+
+    <script defer src="assets/js/plugins/gsap.js"></script>
+    <script defer src="assets/js/plugins/split-text.js"></script>
+    <script defer src="assets/js/plugins/scroll-trigger.js"></script>
+    <!-- smooth-scroll.js 제거 - 마우스 휠 스크롤 속도 개선 -->
+    <script defer src="assets/js/plugins/metismenu.js"></script>
+    <script defer src="assets/js/plugins/popup.js"></script>
+
+    <script defer src="assets/js/vendor/bootstrap.min.js"></script>
+    <script defer src="assets/js/plugins/swiper.js"></script>
+    <script defer src="assets/js/plugins/contact.form.js"></script>
+
+    <script defer src="assets/js/main.js"></script>
+    <script>
+        // 앵커 링크 클릭 시 부드러운 스크롤 (즉시 실행 및 이벤트 위임)
+        (function() {
+            function handleAnchorClick(e) {
+                const anchor = e.target.closest('a[href^="#"]');
+                if (!anchor) return;
+                
+                const href = anchor.getAttribute('href');
+                if (href === '#' || href === '') return;
+                
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 100;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    return false;
+                }
+            }
+            
+            // 즉시 이벤트 리스너 추가
+            document.addEventListener('click', handleAnchorClick, true);
+            
+            // DOMContentLoaded 후에도 다시 확인
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.addEventListener('click', handleAnchorClick, true);
+                });
+            }
+            
+            // 네비게이션 바의 문의하기 버튼에 직접 이벤트 추가
+            function setupContactButton() {
+                const contactButtons = document.querySelectorAll('.quote-btn[href="#contact-section"], .header-one-btn[href="#contact-section"]');
+                contactButtons.forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const target = document.querySelector('#contact-section');
+                        if (target) {
+                            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 100;
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                        return false;
+                    }, true);
+                });
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupContactButton);
+            } else {
+                setupContactButton();
+            }
+            
+            // 약간의 지연 후에도 다시 시도 (다른 스크립트가 로드된 후)
+            setTimeout(setupContactButton, 500);
+            setTimeout(setupContactButton, 1000);
+        })();
+    </script>
+</body>
+
+</html>
