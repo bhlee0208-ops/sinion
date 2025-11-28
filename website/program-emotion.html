@@ -325,6 +325,83 @@
             margin-top: 100px !important;
             padding-top: 100px !important;
         }
+        /* 푸터 전화, 이메일 텍스트 왼쪽 정렬 */
+        .footer-one-single-wized .opening-time-inner {
+            text-align: left !important;
+        }
+        .footer-one-single-wized .opening-time-inner .single-opening {
+            text-align: left !important;
+            display: flex !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+        }
+        .footer-one-single-wized .opening-time-inner .single-opening .day {
+            text-align: left !important;
+            margin-right: 10px !important;
+        }
+        .footer-one-single-wized .opening-time-inner .single-opening .time {
+            text-align: left !important;
+            flex: 1 !important;
+        }
+        /* 푸터 로고 스타일 */
+        .footer-logos-container {
+            padding: 10px 0 5px 0;
+            margin-top: -40px;
+        }
+        .footer-logos-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .footer-logo-sinion {
+            max-height: 190px;
+            height: 190px;
+            width: auto;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+        .footer-logo-women {
+            max-height: 50px;
+            height: 50px;
+            width: auto;
+            flex-shrink: 0;
+            object-fit: contain;
+            margin-top: -25px !important;
+            margin-bottom: 15px !important;
+        }
+        /* 모바일에서 빠른 링크 숨기기 및 로고 한 줄씩 표시 */
+        @media only screen and (max-width: 767px) {
+            /* 빠른 링크가 있는 컬럼 숨기기 */
+            .footer-quick-links {
+                display: none !important;
+            }
+            /* 인스타그램 섹션 숨기기 */
+            .footer-instagram-section {
+                display: none !important;
+            }
+            /* 푸터 로고 모바일 스타일 - 한 줄씩 표시 */
+            .footer-logos-wrapper {
+                flex-direction: column !important;
+                gap: 15px !important;
+                margin-top: 10px !important;
+                margin-bottom: 5px !important;
+            }
+            .footer-logo-sinion {
+                max-height: 200px !important;
+                height: auto !important;
+                max-width: 100% !important;
+                margin-top: 0 !important;
+            }
+            .footer-logo-women {
+                max-height: 50px !important;
+                height: auto !important;
+                max-width: 100% !important;
+                margin-top: -20px !important;
+                margin-bottom: 10px !important;
+            }
+        }
         /* 왼쪽 섹션과 오른쪽 박스 높이 맞추기 */
         .rts-service-details-area-main-bottom .row {
             display: flex !important;
@@ -765,7 +842,7 @@
                     </div>
                 </div>
                 <!-- footer mid area end -->
-                <div class="col-xl-4 col-md-6 col-sm-12 col-12 pl--50 pl_sm--15">
+                <div class="col-xl-4 col-md-6 col-sm-12 col-12 pl--50 pl_sm--15 footer-quick-links">
                     <div class="footer-one-single-wized">
                         <div class="wized-title">
                             <h5 class="title">빠른 링크</h5>
@@ -785,7 +862,7 @@
                 <!-- footer mid area -->
 
                 <!-- footer end area post -->
-                <div class="col-xl-4 col-md-6 col-sm-12 col-12">
+                <div class="col-xl-4 col-md-6 col-sm-12 col-12 footer-instagram-section">
                     <div class="footer-one-single-wized margin-left-65">
                         <div class="wized-title">
                             <h5 class="title">인스타그램</h5>
@@ -810,10 +887,10 @@
             <!-- rts footer area End -->
         </div>
         <!-- 시니온 하단 로고 및 한국여성경제인협회 로고 -->
-        <div class="container" style="padding: 0 0 10px 0; margin-top: -40px;">
-            <div class="d-flex align-items-center justify-content-center" style="gap: 40px;">
-                <img src="assets/images/footer/sinion하단.png" alt="시니온" style="max-height: 190px; height: 190px; width: auto; flex-shrink: 0; object-fit: contain; margin-top: 20px;">
-                <img src="assets/images/footer/한국여성경제인협회_로고.png" alt="한국여성경제인협회" style="max-height: 70px; height: 70px; width: auto; flex-shrink: 0; object-fit: contain;">
+        <div class="container footer-logos-container" style="padding: 0 0 10px 0; margin-top: -40px;">
+            <div class="footer-logos-wrapper d-flex align-items-center justify-content-center" style="gap: 40px;">
+                <img src="assets/images/footer/sinion하단.png" alt="시니온" class="footer-logo-sinion" style="max-height: 190px; height: 190px; width: auto; flex-shrink: 0; object-fit: contain; margin-top: 20px;">
+                <img src="assets/images/footer/한국여성경제인협회_로고.png" alt="한국여성경제인협회" class="footer-logo-women" style="max-height: 50px; height: 50px; width: auto; flex-shrink: 0; object-fit: contain;">
             </div>
         </div>
         <!-- copyright area start -->
