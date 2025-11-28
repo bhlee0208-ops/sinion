@@ -336,6 +336,27 @@
                 width: auto !important;
                 height: auto !important;
             }
+            /* 모바일에서 sticky 상태일 때 로고 위로 올라가게 */
+            .header--sticky.sticky .logo-center-wrapper .thumbnail {
+                transform: translateY(-100%) !important;
+                opacity: 0 !important;
+                transition: transform 0.3s ease, opacity 0.3s ease !important;
+            }
+            /* 모바일에서 sticky 상태일 때 로고 영역 높이 줄이기 */
+            .header--sticky.sticky .logo-center-wrapper {
+                padding-top: 10px !important;
+                margin-bottom: 0 !important;
+                height: 60px !important;
+                overflow: hidden !important;
+            }
+            /* 모바일에서 sticky 상태일 때 햄버거 버튼 고정 */
+            .header--sticky.sticky #menu-btn-mobile.mobile-hamburger-btn {
+                position: fixed !important;
+                top: 10px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                z-index: 1001 !important;
+            }
         }
     </style>
     <link rel="stylesheet preload" href="assets/css/plugins/swiper.css" as="style">
