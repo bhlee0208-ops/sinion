@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="시니온(SINION) - 회원가입. 시니어 전문 교육 프로그램 회원가입">
+    <meta name="description" content="시니온(SINION) - 문의하기. 시니어 전문 교육 프로그램 신청 및 문의">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
-    <title>시니온(SINION) - 회원가입</title>
+    <title>시니온(SINION) - 문의하기</title>
     <link rel="stylesheet" href="assets/css/plugins/fontawesome.css">
     <style>
         /* Font Awesome 아이콘 강제 표시 - 최우선 적용 */
@@ -756,52 +756,60 @@
         </div>
     </header>
 
-    <!-- 회원가입 폼 섹션 -->
-    <div class="rts-section-gap" style="padding-top: 150px; padding-bottom: 100px; background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);">
+    <div class="banner-swiper-two">
+        <div class="swiper mySwiper-banner-two">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <!-- rts banner area start -->
+                    <div class="rts-banner-area-two rts-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-inner-two-content">
+                                        <h1 class="title">교육신청문의</h1>
+                                        <p class="disc">
+                                            시니어 전문 교육 프로그램에 관심이 있으시거나<br>교육 신청을 원하시는 분은 아래 양식을 작성해 주세요.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shape-area-start">
+                            <div class="shape shape-one">
+                                <img loading="lazy" src="assets/images/banner/shape/01.webp" alt="shape-area">
+                            </div>
+                            <div class="shape shape-two">
+                                <img loading="lazy" src="assets/images/banner/shape/02.webp" alt="shape-area">
+                            </div>
+                            <div class="shape shape-three">
+                                <img loading="lazy" src="assets/images/banner/shape/03.webp" alt="shape-area">
+                            </div>
+                            <div class="shape shape-four">
+                                <img loading="lazy" src="assets/images/banner/shape/04.webp" alt="shape-area">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- rts banner area end -->
+                </div>
+            </div>
+            <div class="swiper-button-next"><i class="fa-light fa-chevron-right"></i></div>
+            <div class="swiper-button-prev"><i class="fa-light fa-chevron-left"></i></div>
+        </div>
+    </div>
+
+    <!-- 교육신청 폼 섹션 -->
+    <div class="rts-section-gap" id="education" style="padding-top: 100px; padding-bottom: 100px; background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);">
         <div class="education-form-container">
-            <h1 class="education-form-title">회원가입</h1>
+            <h1 class="education-form-title">기본정보입력</h1>
             
-            <form id="registerForm" method="POST">
+            <form id="educationForm" method="POST" enctype="multipart/form-data">
                 <!-- 이름 -->
                 <div class="form-group">
                     <label class="form-label">
                         이름 <span class="required">*</span>
                     </label>
-                    <input type="text" name="name" class="form-control" placeholder="이름을 입력해주세요" required>
-                </div>
-
-                <!-- 아이디 -->
-                <div class="form-group">
-                    <label class="form-label">
-                        아이디 <span class="required">*</span>
-                    </label>
-                    <input type="text" name="username" class="form-control" placeholder="아이디를 입력해주세요" required>
-                    <p class="form-help-text">영문, 숫자 조합 4-20자</p>
-                </div>
-
-                <!-- 비밀번호 -->
-                <div class="form-group">
-                    <label class="form-label">
-                        비밀번호 <span class="required">*</span>
-                    </label>
-                    <input type="password" name="password" class="form-control" placeholder="비밀번호를 입력해주세요" required>
-                    <p class="form-help-text">영문, 숫자, 특수문자 조합 8자 이상</p>
-                </div>
-
-                <!-- 비밀번호 확인 -->
-                <div class="form-group">
-                    <label class="form-label">
-                        비밀번호 확인 <span class="required">*</span>
-                    </label>
-                    <input type="password" name="password_confirm" class="form-control" placeholder="비밀번호를 다시 입력해주세요" required>
-                </div>
-
-                <!-- 이메일 -->
-                <div class="form-group">
-                    <label class="form-label">
-                        이메일 <span class="required">*</span>
-                    </label>
-                    <input type="email" name="email" class="form-control" placeholder="이메일을 입력해주세요" required>
+                    <input type="text" name="name" class="form-control" required>
+                    <p class="form-help-text">성명을 정확하게 입력해 주세요.</p>
                 </div>
 
                 <!-- 연락처 -->
@@ -811,6 +819,31 @@
                     </label>
                     <input type="tel" name="phone" class="form-control" placeholder="연락처를 입력해주세요" required>
                 </div>
+
+                <!-- 이메일 -->
+                <div class="form-group">
+                    <label class="form-label">이메일</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
+
+                <!-- 주소 -->
+                <div class="form-group">
+                    <label class="form-label">주소</label>
+                    <input type="text" name="address" class="form-control" placeholder="주소를 입력해주세요">
+                </div>
+
+                <!-- 제목 -->
+                <div class="form-group">
+                    <label class="form-label">제목</label>
+                    <input type="text" name="subject" class="form-control">
+                </div>
+
+                <!-- 내용 -->
+                <div class="form-group">
+                    <label class="form-label">내용</label>
+                    <textarea name="content" class="form-control" rows="10"></textarea>
+                </div>
+
 
                 <!-- 약관 동의 -->
                 <div class="form-group">
@@ -823,15 +856,9 @@
                 <!-- 제출 버튼 -->
                 <div class="submit-btn-container">
                     <button type="submit" class="submit-btn">
-                        회원가입
+                        문의하기
                         <i class="fa-light fa-arrow-right"></i>
                     </button>
-                </div>
-
-                <!-- 로그인 링크 -->
-                <div style="text-align: center; margin-top: 30px; padding-top: 30px; border-top: 1px solid #e1e8ed;">
-                    <p style="color: #7f8c8d; font-size: 14px; margin-bottom: 15px;">이미 회원이신가요?</p>
-                    <a href="login.html" style="display: inline-block; padding: 12px 30px; background: #f8f9fa; color: #2c3e50; border: 2px solid #e1e8ed; border-radius: 12px; text-decoration: none; font-weight: 600; transition: all 0.3s;">로그인</a>
                 </div>
             </form>
         </div>
@@ -1044,40 +1071,16 @@
     
     <script>
         // 폼 제출 처리
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
+        document.getElementById('educationForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             // 필수 필드 검증
             const name = document.querySelector('input[name="name"]').value;
-            const username = document.querySelector('input[name="username"]').value;
-            const password = document.querySelector('input[name="password"]').value;
-            const passwordConfirm = document.querySelector('input[name="password_confirm"]').value;
-            const email = document.querySelector('input[name="email"]').value;
             const phone = document.querySelector('input[name="phone"]').value;
             const privacyAgree = document.querySelector('input[name="privacy_agree"]');
             
             if (!name) {
                 alert('이름을 입력해주세요.');
-                return;
-            }
-            
-            if (!username) {
-                alert('아이디를 입력해주세요.');
-                return;
-            }
-            
-            if (!password) {
-                alert('비밀번호를 입력해주세요.');
-                return;
-            }
-            
-            if (password !== passwordConfirm) {
-                alert('비밀번호가 일치하지 않습니다.');
-                return;
-            }
-            
-            if (!email) {
-                alert('이메일을 입력해주세요.');
                 return;
             }
             
@@ -1091,19 +1094,12 @@
                 return;
             }
             
-            // TODO: Firebase Authentication 연동
-            // Firebase Auth를 사용하여 회원가입 처리
-            // 예시:
-            // import { createUserWithEmailAndPassword } from 'firebase/auth';
-            // const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            // 추가 정보(이름, 연락처 등)는 Firestore에 저장
-            
             // 백엔드 연결 전이므로 폼 데이터 확인만
             const formData = new FormData(this);
-            console.log('Register Data:', Object.fromEntries(formData));
+            console.log('Form Data:', Object.fromEntries(formData));
             
-            alert('회원가입 기능은 Firebase Authentication 연결 후 구현됩니다.');
-            // this.reset();
+            alert('교육신청 문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+            this.reset();
         });
     </script>
 </body>

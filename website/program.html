@@ -269,6 +269,14 @@
                 width: auto !important;
                 height: auto !important;
             }
+            /* 모바일에서 문의하기 박스 아래 여백 추가 */
+            .rts-service-details-area-main-bottom .col-xl-4 .rts-single-wized.contact.service,
+            .rts-service-details-area-main-bottom .col-xl-4 .rts-single-wized.contact,
+            .rts-single-wized.contact.service,
+            .rts-single-wized.contact {
+                margin-bottom: 120px !important;
+                padding-bottom: 60px !important;
+            }
         }
     </style>
     <link rel="stylesheet preload" href="assets/css/plugins/swiper.css" as="style">
@@ -324,6 +332,12 @@
             margin-bottom: 100px !important;
             padding-bottom: 80px !important;
         }
+        /* 지도 영역 숨기기 (PC, 모바일 모두) */
+        .map-area-main-wrapper,
+        .mt-dec-footer-map .map-area-main-wrapper,
+        .map-area-main-footer-two {
+            display: none !important;
+        }
         /* 시니온 소개 섹션과 지도 섹션 사이 여백 추가 */
         .rts-about-area-two {
             margin-bottom: 250px !important;
@@ -355,14 +369,45 @@
             position: relative !important;
             z-index: 1;
         }
-        /* 프로그램 페이지 레이아웃 수정 */
+        /* rts-section-gap 클래스의 기본 여백 제거 */
+        .rts-banner-area-two.three.rts-section-gap {
+            padding: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+        /* 모든 미디어 쿼리에서도 여백 제거 */
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .rts-banner-area-two.three.rts-section-gap {
+                padding: 0 !important;
+            }
+        }
+        @media only screen and (max-width: 767px) {
+            .rts-banner-area-two.three.rts-section-gap {
+                padding: 0 !important;
+            }
+        }
+        /* 프로그램 페이지 레이아웃 수정 - 최우선 적용 */
+        div.rts-service-details-area-main-bottom,
         .rts-service-details-area-main-bottom {
             position: relative !important;
             z-index: 2;
             margin-top: 0 !important;
-            padding-top: 200px !important;
-            padding-bottom: 250px !important;
-            margin-bottom: 100px !important;
+            padding-top: 150px !important;
+            padding-bottom: 100px !important;
+            margin-bottom: 0 !important;
+        }
+        /* 배너와 서비스 영역 사이 여백 제거 */
+        .rts-banner-area-two.three + div.rts-service-details-area-main-bottom,
+        .rts-banner-area-two.three + .rts-service-details-area-main-bottom,
+        .rts-banner-area-two.three.rts-section-gap + div.rts-service-details-area-main-bottom,
+        .rts-banner-area-two.three.rts-section-gap + .rts-service-details-area-main-bottom {
+            margin-top: 0 !important;
+            padding-top: 150px !important;
+        }
+        /* rts-section-gap 클래스의 기본 여백 제거 */
+        .rts-banner-area-two.three.rts-section-gap::after {
+            display: none !important;
         }
         .rts-service-details-area-main-bottom .row {
             display: flex !important;
@@ -370,7 +415,7 @@
         }
         .rts-service-details-area-main-bottom .col-xl-8 {
             display: block;
-            margin-top: 50px !important;
+            margin-top: 0 !important;
         }
         .rts-service-details-area-main-bottom .col-xl-4 {
             position: relative !important;
@@ -431,6 +476,13 @@
             margin-top: -25px !important;
             margin-bottom: 15px !important;
         }
+        /* PC에서 한국여성경제인협회 로고를 아래로 내려서 수평 맞추기 */
+        @media only screen and (min-width: 768px) {
+            .footer-logo-women {
+                margin-top: 10px !important;
+                margin-bottom: 0 !important;
+            }
+        }
         /* 모바일에서 빠른 링크 숨기기 및 로고 한 줄씩 표시 */
         @media only screen and (max-width: 767px) {
             /* 빠른 링크가 있는 컬럼 숨기기 */
@@ -461,6 +513,23 @@
                 margin-top: -20px !important;
                 margin-bottom: 10px !important;
             }
+        }
+    </style>
+    <!-- 프로그램 페이지 상단 여백 - style.css 이후에 적용되도록 최우선 -->
+    <style>
+        /* 프로그램 페이지 상단 여백 - 최우선 적용 */
+        body div.rts-service-details-area-main-bottom[style],
+        body .rts-service-details-area-main-bottom,
+        html body .rts-service-details-area-main-bottom {
+            padding-top: 200px !important;
+            padding-bottom: 100px !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+        body .rts-banner-area-two.three + div.rts-service-details-area-main-bottom,
+        body .rts-banner-area-two.three + .rts-service-details-area-main-bottom {
+            padding-top: 200px !important;
+            margin-top: 0 !important;
         }
     </style>
 </head>
@@ -571,7 +640,7 @@
 
 
     <!-- rts banner area start -->
-    <div class="rts-banner-area-two three rts-section-gap bg_image">
+    <div class="rts-banner-area-two three bg_image" style="margin-bottom: 0 !important; padding-bottom: 0 !important; padding-top: 0 !important;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -605,7 +674,7 @@
     <!-- rts banner area end -->
 
     <!-- rts service details area main -->
-    <div class="rts-service-details-area-main-bottom">
+    <div class="rts-service-details-area-main-bottom" style="padding-top: 200px !important; padding-bottom: 100px !important; margin-top: 0 !important;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8">
@@ -759,7 +828,7 @@
                                 <p class="day"><i class="fa-regular fa-envelope"></i></p>
                                 <p class="time">senioron@hanmail.net</p>
                             </div>
-                            <a href="#contact-section" class="rts-btn btn-primary btn-white">문의하기</a>
+                            <a href="contact.html" class="rts-btn btn-primary btn-white">문의하기</a>
                         </div>
                     </div>
                 </div>

@@ -324,14 +324,21 @@
             margin-bottom: 100px !important;
             padding-bottom: 80px !important;
         }
-        /* 시니온 소개 섹션과 지도 섹션 사이 여백 추가 */
-        .rts-about-area-two {
-            margin-bottom: 250px !important;
-            padding-bottom: 150px !important;
+        /* 지도 영역 숨기기 (PC, 모바일 모두) */
+        .map-area-main-wrapper,
+        .mt-dec-footer-map .map-area-main-wrapper,
+        .map-area-main-footer-two {
+            display: none !important;
+        }
+        .rts-service-details-area-main-bottom {
+            padding-top: 100px !important;
+            padding-bottom: 100px !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
         }
         .rts-footer-area.footer-two {
-            margin-top: 250px !important;
-            padding-top: 150px !important;
+            margin-top: 150px !important;
+            padding-top: 100px !important;
         }
         /* 프로그램 카드 호버 애니메이션 */
         .program-card {
@@ -359,7 +366,8 @@
             position: relative;
             z-index: 2;
             margin-top: 0 !important;
-            padding-top: 180px !important;
+            padding-top: 100px !important;
+            padding-bottom: 100px !important;
         }
         #program-content {
             scroll-margin-top: 0 !important;
@@ -425,6 +433,13 @@
             object-fit: contain;
             margin-top: -25px !important;
             margin-bottom: 15px !important;
+        }
+        /* PC에서 한국여성경제인협회 로고를 아래로 내려서 수평 맞추기 */
+        @media only screen and (min-width: 768px) {
+            .footer-logo-women {
+                margin-top: 10px !important;
+                margin-bottom: 0 !important;
+            }
         }
         /* 모바일에서 빠른 링크 숨기기 및 로고 한 줄씩 표시 */
         @media only screen and (max-width: 767px) {
@@ -655,7 +670,7 @@
     <!-- rts banner area end -->
 
     <!-- rts service details area main -->
-    <div class="rts-service-details-area-main-bottom" id="program-content">
+    <div class="rts-service-details-area-main-bottom" id="program-content" style="padding-top: 100px; padding-bottom: 100px;">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8">
@@ -811,66 +826,9 @@
     <!-- rts service details area main end -->
 
     <!-- rts footer two area wrapper -->
-    <div class="rts-footer-area footer-two mt-dec-footer-map bg-footer-two bg_image">
+    <div class="rts-footer-area footer-two mt-dec-footer-map bg-footer-two bg_image" style="padding-top: 150px;">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="map-area-main-wrapper">
-                        <div class="row">
-                            <div class="col-lg-7">
-                                <div class="map-area-main-footer-two">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.354175341534!2d127.02892911283747!3d37.4995639719396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca157b7724c47%3A0x75f2f9d7958750eb!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDthYztl6TrnoDroZwgMTIz!5e0!3m2!1sko!2skr!4v1764151122247!5m2!1sko!2skr" width="625" height="625" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="시니온 위치 - 경기도 화성시 메티폴리스로42, 902동<br>(동탄 반송동, 디앤씨빌딩)"></iframe>
-                                </div>
-                            </div>
-                            <div class="col-lg-5">
-                                <div class="map-information-2-footer" id="contact-section">
-                                    <h5 class="title-main">문의하기</h5>
-                                    <img loading="lazy" src="assets/images/footer/02.svg" alt="line" class="line">
-                                    <div class="contact-information-main-wrapper">
-                                        <div class="signle-contact-information">
-                                            <div class="icon">
-                                                <i class="fa-solid fa-phone"></i>
-                                            </div>
-                                            <div class="information-wrapper">
-                                                <span>전화 문의</span>
-                                                <a href="tel:0502-1925-3259">
-                                                    <h6 class="title">0502-1925-3259</h6>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="signle-contact-information">
-                                            <div class="icon">
-                                                <i class="fa-regular fa-envelope"></i>
-                                            </div>
-                                            <div class="information-wrapper">
-                                                <span>이메일 문의</span>
-                                                <a href="mailto:senioron@hanmail.net">
-                                                    <h6 class="title">senioron@hanmail.net</h6>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="signle-contact-information">
-                                            <div class="icon">
-                                                <i class="fa-sharp fa-solid fa-location-dot"></i>
-                                            </div>
-                                            <div class="information-wrapper">
-                                                <span>운영시간</span>
-                                                <a href="#">
-                                                    <h6 class="title">평일 10:00 - 17:00</h6>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container bg-shape-f1">
-            <!-- rts footer area -->
-            <div class="row pt--120 pt_sm--80 pb--80 pb_sm--40">
 
                 <div class="col-xl-4 col-md-6 col-sm-12 col-12">
                     <div class="footer-one-single-wized mid-bg">
@@ -891,7 +849,7 @@
                                 <p class="day"><i class="fa-regular fa-envelope"></i></p>
                                 <p class="time">senioron@hanmail.net</p>
                             </div>
-                            <a href="#contact-section" class="rts-btn btn-primary btn-white">문의하기</a>
+                            <a href="contact.html" class="rts-btn btn-primary btn-white">문의하기</a>
                         </div>
                     </div>
                 </div>

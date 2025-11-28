@@ -266,6 +266,10 @@
                 width: auto !important;
                 height: auto !important;
             }
+            /* 모바일에서 25년 경험 카운터 숨기기 */
+            .counter-about-area {
+                display: none !important;
+            }
         }
     </style>
     <link rel="stylesheet preload" href="assets/css/plugins/swiper.css" as="style">
@@ -385,6 +389,13 @@
             object-fit: contain;
             margin-top: -25px !important;
             margin-bottom: 15px !important;
+        }
+        /* PC에서 한국여성경제인협회 로고를 아래로 내려서 수평 맞추기 */
+        @media only screen and (min-width: 768px) {
+            .footer-logo-women {
+                margin-top: 10px !important;
+                margin-bottom: 0 !important;
+            }
         }
         /* 모바일에서 빠른 링크 숨기기 및 로고 한 줄씩 표시 */
         @media only screen and (max-width: 767px) {
