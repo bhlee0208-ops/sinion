@@ -1069,36 +1069,6 @@
     <script defer src="assets/js/plugins/swiper.js"></script>
     <script defer src="assets/js/plugins/contact.form.js"></script>
 
-    <script>
-        // 강제로 푸터 위치 고정
-        (function() {
-            function forceFixFooter() {
-                const footer = document.querySelector('.rts-footer-area.footer-two');
-                if (footer) {
-                    footer.style.setProperty('margin-top', '0px', 'important');
-                    footer.style.setProperty('padding-top', '50px', 'important');
-                    footer.style.setProperty('position', 'relative', 'important');
-                    footer.style.setProperty('clear', 'both', 'important');
-                }
-            }
-            
-            // 즉시 실행
-            forceFixFooter();
-            
-            // DOM 로드 후 실행
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', forceFixFooter);
-            }
-            
-            // 페이지 로드 후 실행
-            window.addEventListener('load', forceFixFooter);
-            
-            // 여러 번 재실행
-            setTimeout(forceFixFooter, 100);
-            setTimeout(forceFixFooter, 500);
-            setTimeout(forceFixFooter, 1000);
-        })();
-    </script>
 
     <script defer src="assets/js/main.js">    </script>
     <script>
