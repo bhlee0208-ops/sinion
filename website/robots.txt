@@ -1,8 +1,12 @@
+# 주의: 도메인 변경 시 이 파일의 Sitemap URL을 수정해야 합니다.
+# 또는 site-config.js의 domain 값을 참고하여 수정하세요.
+# 현재 도메인: https://sinion.vercel.app
+
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://sinion.kr/sitemap.xml
+Sitemap: https://sinion.vercel.app/sitemap.xml
 
 # Disallow admin or private areas if any
 # Disallow: /admin/
