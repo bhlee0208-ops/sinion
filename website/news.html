@@ -108,6 +108,61 @@
         .fa-envelope:before, i.fa-envelope:before, .fal.fa-envelope:before { content: "\f0e0" !important; }
         .fa-clock:before, i.fa-clock:before, .fal.fa-clock:before { content: "\f017" !important; }
         .fa-comment:before, i.fa-comment:before, .fas.fa-comment:before { content: "\f075" !important; }
+        /* 최상단 헤더 인스타그램/카카오톡 텍스트 숨기기 - 아이콘만 표시 (최우선 적용) */
+        .header-top-area-wrapper .header-top-one-wrapper .right .social-wrapper-one li a,
+        .header-top-one-wrapper .social-wrapper-one li a {
+            font-size: 0 !important;
+            line-height: 0 !important;
+            color: transparent !important;
+            text-indent: -9999px !important;
+            overflow: hidden !important;
+            position: relative !important;
+            width: 24px !important;
+            height: 24px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-decoration: none !important;
+        }
+        .header-top-area-wrapper .header-top-one-wrapper .right .social-wrapper-one li a i,
+        .header-top-one-wrapper .social-wrapper-one li a i {
+            font-size: 18px !important;
+            line-height: 1 !important;
+            display: inline-block !important;
+            color: #333 !important;
+            text-indent: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: absolute !important;
+            left: 50% !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            width: 18px !important;
+            height: 18px !important;
+        }
+        .header-top-area-wrapper .header-top-one-wrapper .right .social-wrapper-one li a::after,
+        .header-top-area-wrapper .header-top-one-wrapper .right .social-wrapper-one li a::before,
+        .header-top-one-wrapper .social-wrapper-one li a::after,
+        .header-top-one-wrapper .social-wrapper-one li a::before {
+            content: "" !important;
+            display: none !important;
+        }
+        .header-top-area-wrapper .header-top-one-wrapper .right .social-wrapper-one li,
+        .header-top-one-wrapper .social-wrapper-one li {
+            margin: 0 5px !important;
+            position: relative !important;
+        }
+        .header-top-area-wrapper .header-top-one-wrapper .right .social-wrapper-one li a *:not(i),
+        .header-top-area-wrapper .header-top-one-wrapper .right .social-wrapper-one li a span,
+        .header-top-area-wrapper .header-top-one-wrapper .right .social-wrapper-one li a text,
+        .header-top-one-wrapper .social-wrapper-one li a *:not(i),
+        .header-top-one-wrapper .social-wrapper-one li a span,
+        .header-top-one-wrapper .social-wrapper-one li a text {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            font-size: 0 !important;
+        }
         /* 스크롤 투 탑 버튼 숨기기 */
         .progress-wrap {
             display: none !important;
@@ -694,8 +749,8 @@
                             </div>
                             <div class="right">
                                 <ul class="social-wrapper-one">
-                                    <li><a href="https://www.instagram.com/The-Sinion" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> 인스타 : The-Sinion</a></li>
-                                    <li><a href="https://pf.kakao.com/_시니온SINION" target="_blank" rel="noopener noreferrer"><i class="fas fa-comment"></i> 카카오톡채널 : 시니온 (SINION)</a></li>
+                                    <li><a href="https://www.instagram.com/The-Sinion" target="_blank" rel="noopener noreferrer" aria-label="인스타그램" style="font-size: 0 !important; line-height: 0 !important; color: transparent !important; text-indent: -9999px !important; overflow: hidden !important; position: relative !important; width: 24px !important; height: 24px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important;"><i class="fab fa-instagram" style="font-size: 18px !important; line-height: 1 !important; color: #333 !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important;"></i></a></li>
+                                    <li><a href="https://pf.kakao.com/_시니온SINION" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 채널" style="font-size: 0 !important; line-height: 0 !important; color: transparent !important; text-indent: -9999px !important; overflow: hidden !important; position: relative !important; width: 24px !important; height: 24px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important;"><i class="fas fa-comment" style="font-size: 18px !important; line-height: 1 !important; color: #333 !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important;"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1139,8 +1194,8 @@
         <!-- 한국직업능력연구원, 시니온 하단 로고 및 한국여성경제인협회 로고 -->
         <div class="container footer-logos-container" style="padding: 0 !important; margin-top: -40px !important; width: 100% !important; max-width: 100% !important; display: flex !important; justify-content: center !important; align-items: center !important; margin-left: auto !important; margin-right: auto !important;">
             <div class="footer-logos-wrapper d-flex align-items-center justify-content-center" style="gap: 40px !important; flex-wrap: nowrap !important; white-space: nowrap !important; width: auto !important; margin: 0 auto !important; padding: 0 !important; display: flex !important; justify-content: center !important; position: relative !important; left: -25px !important;">
-                <img src="assets/images/footer/한국직업능력연구원.png" alt="한국직업능력연구원" class="footer-logo-krivet" style="max-height: 80px; height: 80px; width: auto; flex-shrink: 0; object-fit: contain; margin-top: 15px;">
-                <img src="assets/images/footer/sinion하단.png" alt="시니온" class="footer-logo-sinion" style="max-height: 190px; height: 190px; width: auto; flex-shrink: 0; object-fit: contain; margin-top: 20px;">
+                <img src="assets/images/footer/한국직업능력연구원.png" alt="한국직업능력연구원" class="footer-logo-krivet" style="max-height: 135px; height: 135px; width: auto; flex-shrink: 0; object-fit: contain; margin-top: 15px;">
+                <img src="assets/images/footer/시니온.png" alt="시니온" class="footer-logo-sinion" style="max-height: 140px; height: 140px; width: auto; flex-shrink: 0; object-fit: contain; margin-top: 20px;">
                 <img src="assets/images/footer/한국여성경제인협회_로고.png" alt="한국여성경제인협회" class="footer-logo-women" style="max-height: 50px; height: 50px; width: auto; flex-shrink: 0; object-fit: contain;">
             </div>
         </div>
@@ -1702,11 +1757,11 @@
     
     <!-- 퀵메뉴 (왼쪽 하단 고정) -->
     <div class="quick-menu">
-        <a href="https://www.instagram.com/the_sinion?igsh=MnZtaHJyczNjbzhl" target="_blank" rel="noopener noreferrer" class="quick-menu-item" aria-label="인스타그램">
-            <img src="assets/images/quick-menu/인스타.png" alt="인스타그램" class="quick-menu-icon">
-        </a>
         <a href="https://pf.kakao.com/_nxiPLn/chat" target="_blank" rel="noopener noreferrer" class="quick-menu-item" aria-label="카카오톡 채널">
             <img src="assets/images/quick-menu/채널.png" alt="카카오톡 채널" class="quick-menu-icon">
+        </a>
+        <a href="https://www.instagram.com/the_sinion?igsh=MnZtaHJyczNjbzhl" target="_blank" rel="noopener noreferrer" class="quick-menu-item" aria-label="인스타그램">
+            <img src="assets/images/quick-menu/인스타.png" alt="인스타그램" class="quick-menu-icon">
         </a>
     </div>
     
