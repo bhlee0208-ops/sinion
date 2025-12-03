@@ -477,9 +477,70 @@
             margin-bottom: 0 !important;
             padding-bottom: 0 !important;
         }
-        .rts-footer-area.footer-two {
+        /* 푸터 배경색 더 밝은 아이보리색으로 변경 */
+        .rts-footer-area.footer-two,
+        .rts-footer-area.footer-two.bg-footer-two {
+            background-color: #FAF8F3 !important;
+            background-image: none !important;
             margin-top: 100px !important;
             padding-top: 100px !important;
+        }
+        
+        /* 회사주소 박스 배경색 아이보리 계열로 변경 */
+        .footer-two .footer-one-single-wized.mid-bg {
+            background-color: #F0EBE3 !important;
+            background-image: none !important;
+        }
+        
+        /* 회사주소 박스 내부 버튼도 아이보리 계열로 */
+        .footer-two .footer-one-single-wized.mid-bg .rts-btn.btn-primary.btn-white,
+        .footer-two .footer-one-single-wized.mid-bg a.rts-btn.btn-primary.btn-white {
+            background-color: #E8E0D6 !important;
+            color: #2C2C2C !important;
+            border-color: #D4C9BC !important;
+        }
+        
+        /* 문의하기 버튼 호버 시 글씨 흰색으로 */
+        .footer-two .footer-one-single-wized.mid-bg .rts-btn.btn-primary.btn-white:hover,
+        .footer-two .footer-one-single-wized.mid-bg a.rts-btn.btn-primary.btn-white:hover,
+        .footer-two .footer-one-single-wized.mid-bg a.rts-btn.btn-primary.btn-white:focus,
+        .footer-two .footer-one-single-wized.mid-bg .opening-time-inner a.rts-btn:hover {
+            background-color: #E8E0D6 !important;
+            color: #FFFFFF !important;
+            border-color: #D4C9BC !important;
+        }
+        
+        /* 푸터 텍스트 색상 - 잘 보이게 */
+        .footer-two .footer-one-single-wized .wized-title .title,
+        .footer-two .footer-one-single-wized .quick-link-inner .links li a,
+        .footer-two .footer-one-single-wized .opening-time-inner .single-opening .time,
+        .footer-two .footer-one-single-wized .opening-time-inner .single-opening .day,
+        .footer-two .footer-one-single-wized .body .update-wrapper .disc,
+        .footer-two .footer-one-single-wized .opening-time-inner .single-opening .day i {
+            color: #2C2C2C !important;
+        }
+        
+        /* 푸터 선 색상 - 잘 보이게 */
+        .footer-two .footer-one-single-wized .wized-title img {
+            opacity: 0.4 !important;
+            filter: brightness(0.3) !important;
+        }
+        
+        /* 푸터 링크 호버 색상 */
+        .footer-two .footer-one-single-wized .quick-link-inner .links li a:hover {
+            color: #000000 !important;
+        }
+        
+        /* 인스타그램 텍스트 색상 */
+        .footer-two .footer-one-single-wized .body .update-wrapper .disc {
+            color: #2C2C2C !important;
+        }
+        
+        /* 카피라이팅 텍스트 색상 - 검은색으로 가독성 있게 */
+        .footer-two .rts-copyright-area,
+        .footer-two .rts-copyright-area p {
+            color: #1A1A1A !important;
+            font-weight: 500 !important;
         }
         /* 푸터 전화, 이메일 텍스트 왼쪽 정렬 */
         .footer-one-single-wized .opening-time-inner {
@@ -992,13 +1053,93 @@
             </div>
             <!-- rts footer area End -->
         </div>
-        <!-- 시니온 하단 로고 및 한국여성경제인협회 로고 -->
-        <div class="container footer-logos-container" style="padding: 0 0 10px 0; margin-top: -40px;">
-            <div class="footer-logos-wrapper d-flex align-items-center justify-content-center" style="gap: 40px;">
+        <!-- 한국직업능력연구원, 시니온 하단 로고 및 한국여성경제인협회 로고 -->
+        <div class="container footer-logos-container" style="padding: 0 !important; margin-top: -40px !important; width: 100% !important; max-width: 100% !important; display: flex !important; justify-content: center !important; align-items: center !important; margin-left: auto !important; margin-right: auto !important;">
+            <div class="footer-logos-wrapper d-flex align-items-center justify-content-center" style="gap: 40px !important; flex-wrap: nowrap !important; white-space: nowrap !important; width: auto !important; margin: 0 auto !important; padding: 0 !important; display: flex !important; justify-content: center !important; position: relative !important; left: -25px !important;">
+                <img src="assets/images/footer/한국직업능력연구원.png" alt="한국직업능력연구원" class="footer-logo-krivet" style="max-height: 80px; height: 80px; width: auto; flex-shrink: 0; object-fit: contain; margin-top: 15px;">
                 <img src="assets/images/footer/sinion하단.png" alt="시니온" class="footer-logo-sinion" style="max-height: 190px; height: 190px; width: auto; flex-shrink: 0; object-fit: contain; margin-top: 20px;">
                 <img src="assets/images/footer/한국여성경제인협회_로고.png" alt="한국여성경제인협회" class="footer-logo-women" style="max-height: 50px; height: 50px; width: auto; flex-shrink: 0; object-fit: contain;">
             </div>
         </div>
+        
+        <style>
+            /* PC에서 로고 한 줄로 표시 및 가운데 정렬 */
+            @media only screen and (min-width: 768px) {
+                .footer-logos-wrapper {
+                    flex-wrap: nowrap !important;
+                    white-space: nowrap !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+                }
+                
+                .footer-logos-container {
+                    display: flex !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                    padding-left: 20px !important;
+                    padding-right: 0 !important;
+                }
+                
+                .footer-logos-wrapper {
+                    justify-content: center !important;
+                    width: auto !important;
+                    position: relative !important;
+                    left: -25px !important;
+                }
+            }
+            
+            /* 모든 화면 크기에서 로고 가운데 정렬 강제 */
+            .footer-logos-container.container {
+                margin-left: auto !important;
+                margin-right: auto !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                text-align: center !important;
+            }
+            
+            .footer-logos-wrapper {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin: 0 auto !important;
+                width: auto !important;
+                position: relative !important;
+                left: -25px !important;
+            }
+            
+            .footer-logos-container {
+                justify-content: center !important;
+                padding-left: 0 !important;
+            }
+            
+            /* 모바일에서 로고 사이 상하 여백 거의 없게 */
+            @media only screen and (max-width: 767px) {
+                .footer-logos-wrapper {
+                    gap: 2px !important;
+                    flex-direction: column !important;
+                    flex-wrap: wrap !important;
+                }
+                
+                .footer-logo-krivet,
+                .footer-logo-sinion,
+                .footer-logo-women {
+                    margin-top: 0 !important;
+                    margin-bottom: 0 !important;
+                }
+                
+                /* 인라인 스타일의 margin-top도 오버라이드 */
+                .footer-logo-krivet[style],
+                .footer-logo-sinion[style],
+                .footer-logo-women[style] {
+                    margin-top: 0 !important;
+                    margin-bottom: 0 !important;
+                }
+            }
+        </style>
         <!-- copyright area start -->
         <div class="rts-copyright-area">
             <div class="container">
@@ -1356,6 +1497,69 @@
             setTimeout(setupContactButton, 1000);
         })();
     </script>
+</body>
+    <!-- 퀵메뉴 (왼쪽 하단 고정) -->
+    <div class="quick-menu">
+        <a href="https://www.instagram.com/the_sinion?igsh=MnZtaHJyczNjbzhl" target="_blank" rel="noopener noreferrer" class="quick-menu-item" aria-label="인스타그램">
+            <img src="assets/images/quick-menu/인스타.png" alt="인스타그램" class="quick-menu-icon">
+        </a>
+        <a href="https://pf.kakao.com/_nxiPLn/chat" target="_blank" rel="noopener noreferrer" class="quick-menu-item" aria-label="카카오톡 채널">
+            <img src="assets/images/quick-menu/채널.png" alt="카카오톡 채널" class="quick-menu-icon">
+        </a>
+    </div>
+    
+    <style>
+        /* 퀵메뉴 스타일 */
+        .quick-menu {
+            position: fixed;
+            left: 5px;
+            bottom: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .quick-menu-item {
+            display: block;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .quick-menu-item:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+        
+        .quick-menu-icon {
+            width: auto;
+            height: auto;
+            max-width: 90px;
+            max-height: 90px;
+            object-fit: contain;
+            display: block;
+        }
+        
+        /* 모바일 반응형 */
+        @media only screen and (max-width: 767px) {
+            .quick-menu {
+                left: 5px;
+                bottom: 15px;
+                gap: 2px;
+            }
+            
+            .quick-menu-icon {
+                max-width: 70px;
+                max-height: 70px;
+            }
+        }
+    </style>
 </body>
 
 </html>
