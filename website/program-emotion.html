@@ -108,6 +108,16 @@
         .fa-envelope:before, i.fa-envelope:before, .fal.fa-envelope:before { content: "\f0e0" !important; }
         .fa-clock:before, i.fa-clock:before, .fal.fa-clock:before { content: "\f017" !important; }
         .fa-comment:before, i.fa-comment:before, .fas.fa-comment:before { content: "\f075" !important; }
+        /* 노트북 화면에서 헤더 고정 해제 (768px ~ 1366px) */
+        @media only screen and (min-width: 768px) and (max-width: 1366px) {
+            .header--sticky.sticky {
+                position: relative !important;
+                top: auto !important;
+            }
+            .header--sticky.sticky .header-top-area-wrapper {
+                display: block !important;
+            }
+        }
         /* 스크롤 투 탑 버튼 숨기기 */
         .progress-wrap {
             display: none !important;
@@ -1124,9 +1134,10 @@
             /* 모바일에서 로고 사이 상하 여백 거의 없게 */
             @media only screen and (max-width: 767px) {
                 .footer-logos-wrapper {
-                    gap: 2px !important;
+                    gap: 0px !important;
                     flex-direction: column !important;
                     flex-wrap: wrap !important;
+                    margin-bottom: 15px !important;
                 }
                 
                 .footer-logo-krivet,
@@ -1500,14 +1511,38 @@
             setTimeout(setupContactButton, 1000);
         })();
     </script>
+    
+    <script>
+        // 포토갤러리 링크 클릭 시 햄버거 메뉴 닫기
+        document.addEventListener('DOMContentLoaded', function() {
+            // 모든 포토갤러리 링크 찾기
+            const galleryLinks = document.querySelectorAll('a[href*="#gallery"], a[href*="news.html#gallery"]');
+            
+            galleryLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    // 햄버거 메뉴 닫기
+                    const sideBar = document.getElementById('side-bar');
+                    if (sideBar && sideBar.classList.contains('show')) {
+                        sideBar.classList.remove('show');
+                    }
+                    
+                    // 메뉴 버튼 상태 초기화
+                    const menuBtn = document.getElementById('menu-btn-mobile');
+                    if (menuBtn) {
+                        menuBtn.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
     <!-- 퀵메뉴 (왼쪽 하단 고정) -->
     <div class="quick-menu">
-        <a href="https://www.instagram.com/the_sinion?igsh=MnZtaHJyczNjbzhl" target="_blank" rel="noopener noreferrer" class="quick-menu-item" aria-label="인스타그램">
-            <img src="assets/images/quick-menu/인스타.png" alt="인스타그램" class="quick-menu-icon">
-        </a>
         <a href="https://pf.kakao.com/_nxiPLn/chat" target="_blank" rel="noopener noreferrer" class="quick-menu-item" aria-label="카카오톡 채널">
-            <img src="assets/images/quick-menu/채널.png" alt="카카오톡 채널" class="quick-menu-icon">
+            <img src="assets/images/quick-menu/인스타.png" alt="카카오톡 채널" class="quick-menu-icon">
+        </a>
+        <a href="https://www.instagram.com/the_sinion?igsh=MnZtaHJyczNjbzhl" target="_blank" rel="noopener noreferrer" class="quick-menu-item" aria-label="인스타그램">
+            <img src="assets/images/quick-menu/채널.png" alt="인스타그램" class="quick-menu-icon">
         </a>
     </div>
     
@@ -1562,6 +1597,16 @@
             min-height: 60px !important;
             object-fit: contain !important;
             display: block !important;
+        }
+        
+        /* 모바일에서 퀵메뉴 크기 줄이기 */
+        @media only screen and (max-width: 767px) {
+            .quick-menu-icon {
+                max-width: 50px !important;
+                max-height: 50px !important;
+                min-width: 40px !important;
+                min-height: 40px !important;
+            }
         }
     </style>
 </body>
