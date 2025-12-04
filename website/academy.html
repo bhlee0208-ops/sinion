@@ -535,12 +535,16 @@
             flex-wrap: wrap;
         }
         .footer-logo-sinion {
-            max-height: 190px;
-            height: 190px;
+            max-height: 140px;
+            height: 140px;
             width: auto;
             flex-shrink: 0;
             object-fit: contain;
+            display: block;
+            visibility: visible;
+            opacity: 1;
         }
+        
         .footer-logo-women {
             max-height: 50px;
             height: 50px;
@@ -575,10 +579,13 @@
                 margin-bottom: 5px !important;
             }
             .footer-logo-sinion {
-                max-height: 200px !important;
-                height: auto !important;
+                max-height: 140px !important;
+                height: 140px !important;
                 max-width: 100% !important;
                 margin-top: 0 !important;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
             }
             .footer-logo-women {
                 max-height: 50px !important;
@@ -1315,6 +1322,26 @@
                     margin-bottom: 0 !important;
                     line-height: 0 !important;
                     vertical-align: top !important;
+                    display: block !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                }
+                
+                /* 시니온 로고 강제 표시 - 모바일 */
+                img.footer-logo-sinion,
+                img[src*="시니온"],
+                img[src*="sinion"],
+                .footer-logos-wrapper img.footer-logo-sinion,
+                .footer-logos-container img.footer-logo-sinion,
+                .footer-logo-sinion[style] {
+                    display: block !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                    max-height: 140px !important;
+                    height: 140px !important;
+                    width: auto !important;
+                    margin-top: 0 !important;
+                    margin-bottom: 0 !important;
                 }
                 
                 /* 마지막 로고 밑에 여백 추가 */
@@ -1328,6 +1355,7 @@
                     height: 15px;
                     width: 100%;
                 }
+                
             }
         </style>
         <!-- copyright area start -->
