@@ -1633,55 +1633,56 @@
     </div>
     
     <style>
-        /* 퀵메뉴 스타일 */
+        /* 퀵메뉴 스타일 - 모든 디바이스에서 동일 */
         .quick-menu {
-            position: fixed;
-            left: 5px;
-            bottom: 20px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
+            position: fixed !important;
+            left: 5px !important;
+            bottom: 20px !important;
+            z-index: 9999 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 2px !important;
+            width: auto !important;
+            height: auto !important;
         }
         
         .quick-menu-item {
-            display: block;
-            background: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            padding: 0;
-            margin: 0;
+            display: block !important;
+            background: transparent !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: all 0.3s ease !important;
+            text-decoration: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            order: 0 !important;
+        }
+        
+        .quick-menu-item:first-child {
+            order: 1 !important;
+        }
+        
+        .quick-menu-item:last-child {
+            order: 2 !important;
         }
         
         .quick-menu-item:hover {
-            transform: translateY(-3px);
-            opacity: 0.9;
+            transform: translateY(-3px) !important;
+            opacity: 0.9 !important;
         }
         
         .quick-menu-icon {
-            width: auto;
-            height: auto;
-            max-width: 90px;
-            max-height: 90px;
-            object-fit: contain;
-            display: block;
-        }
-        
-        /* 모바일 반응형 */
-        @media only screen and (max-width: 767px) {
-            .quick-menu {
-                left: 5px;
-                bottom: 15px;
-                gap: 2px;
-            }
-            
-            .quick-menu-icon {
-                max-width: 70px;
-                max-height: 70px;
-            }
+            width: auto !important;
+            height: auto !important;
+            max-width: 90px !important;
+            max-height: 90px !important;
+            min-width: 60px !important;
+            min-height: 60px !important;
+            object-fit: contain !important;
+            display: block !important;
         }
     </style>
 </body>
