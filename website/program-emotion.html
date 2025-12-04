@@ -108,11 +108,17 @@
         .fa-envelope:before, i.fa-envelope:before, .fal.fa-envelope:before { content: "\f0e0" !important; }
         .fa-clock:before, i.fa-clock:before, .fal.fa-clock:before { content: "\f017" !important; }
         .fa-comment:before, i.fa-comment:before, .fas.fa-comment:before { content: "\f075" !important; }
-        /* 노트북 화면에서 헤더 고정 해제 (768px ~ 1366px) */
-        @media only screen and (min-width: 768px) and (max-width: 1366px) {
-            .header--sticky.sticky {
+        /* PC와 노트북 모두 헤더 고정 해제 (768px 이상) - 최우선 적용 */
+        @media only screen and (min-width: 768px) {
+            header.header--sticky.sticky,
+            .header--sticky.sticky,
+            header.header-one.header--sticky.sticky {
                 position: relative !important;
                 top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                transform: none !important;
             }
             .header--sticky.sticky .header-top-area-wrapper {
                 display: block !important;
@@ -1071,9 +1077,9 @@
         <!-- 한국직업능력연구원, 시니온 하단 로고 및 한국여성경제인협회 로고 -->
         <div class="container footer-logos-container" style="padding: 0 !important; margin-top: -40px !important; width: 100% !important; max-width: 100% !important; display: flex !important; justify-content: center !important; align-items: center !important; margin-left: auto !important; margin-right: auto !important;">
             <div class="footer-logos-wrapper d-flex align-items-center justify-content-center" style="gap: 40px !important; flex-wrap: nowrap !important; white-space: nowrap !important; width: auto !important; margin: 0 auto !important; padding: 0 !important; display: flex !important; justify-content: center !important; position: relative !important; left: -25px !important;">
-                <img src="assets/images/footer/한국직업능력연구원.png" alt="한국직업능력연구원" class="footer-logo-krivet" style="max-height: 135px; height: 135px; width: auto; flex-shrink: 0; object-fit: contain; margin-top: 15px;">
-                <img src="assets/images/footer/sinion하단.png" alt="시니온" class="footer-logo-sinion" style="max-height: 140px; height: 140px; width: auto; flex-shrink: 0; object-fit: contain; margin-top: 20px;">
-                <img src="assets/images/footer/한국여성경제인협회_로고.png" alt="한국여성경제인협회" class="footer-logo-women" style="max-height: 50px; height: 50px; width: auto; flex-shrink: 0; object-fit: contain;">
+                <img src="assets/images/footer/한국직업능력연구원.png" alt="한국직업능력연구원" class="footer-logo-krivet" style="max-height: 135px; height: 135px; width: auto; flex-shrink: 0; object-fit: contain; margin-top: 15px; line-height: 0;">
+                <img src="assets/images/footer/sinion하단.png" alt="시니온" class="footer-logo-sinion" style="max-height: 140px; height: 140px; width: auto; flex-shrink: 0; object-fit: contain; margin-top: 20px; line-height: 0;">
+                <img src="assets/images/footer/한국여성경제인협회_로고.png" alt="한국여성경제인협회" class="footer-logo-women" style="max-height: 50px; height: 50px; width: auto; flex-shrink: 0; object-fit: contain; line-height: 0;">
             </div>
         </div>
         
@@ -1131,13 +1137,28 @@
                 padding-left: 0 !important;
             }
             
-            /* 모바일에서 로고 사이 상하 여백 거의 없게 */
+            /* 모바일에서 로고 사이 상하 여백 완전히 제거 */
             @media only screen and (max-width: 767px) {
+                .footer-logos-container {
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                    left: 0 !important;
+                }
+                
                 .footer-logos-wrapper {
                     gap: 0px !important;
                     flex-direction: column !important;
                     flex-wrap: wrap !important;
                     margin-bottom: 15px !important;
+                    padding-bottom: 15px !important;
+                    left: 0 !important;
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
+                    width: 100% !important;
+                    justify-content: center !important;
+                    align-items: center !important;
                 }
                 
                 .footer-logo-krivet,
@@ -1145,14 +1166,31 @@
                 .footer-logo-women {
                     margin-top: 0 !important;
                     margin-bottom: 0 !important;
+                    line-height: 0 !important;
+                    display: block !important;
+                    vertical-align: top !important;
                 }
                 
-                /* 인라인 스타일의 margin-top도 오버라이드 */
+                /* 인라인 스타일의 margin-top도 완전히 오버라이드 */
                 .footer-logo-krivet[style],
                 .footer-logo-sinion[style],
                 .footer-logo-women[style] {
                     margin-top: 0 !important;
                     margin-bottom: 0 !important;
+                    line-height: 0 !important;
+                    vertical-align: top !important;
+                }
+                
+                /* 마지막 로고 밑에 여백 추가 */
+                .footer-logo-women {
+                    margin-bottom: 0 !important;
+                }
+                
+                .footer-logos-wrapper::after {
+                    content: '';
+                    display: block;
+                    height: 15px;
+                    width: 100%;
                 }
             }
         </style>
@@ -1609,6 +1647,9 @@
             }
         }
     </style>
+    
+    <!-- 헤더 고정 해제 스크립트 (768px 이상) -->
+    <script src="assets/js/header-unsticky.js"></script>
 </body>
 
 </html>
