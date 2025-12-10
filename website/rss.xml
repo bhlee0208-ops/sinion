@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    주의: 도메인 변경 시 이 파일의 모든 URL을 수정해야 합니다.
+    또는 site-config.js의 domain 값을 참고하여 수정하세요.
+    현재 도메인: https://www.sinion.co.kr
+-->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>시니온(SINION) - 시니어 전문 교육 프로그램</title>
+        <link>https://www.sinion.co.kr/</link>
+        <description>시니어 전문 교육 브랜드. 시니어의 삶에 따뜻한 빛과 기억을 다시 켜드리는 전문 교육 프로그램 및 케어 서비스를 제공합니다.</description>
+        <language>ko-KR</language>
+        <copyright>Copyright 2025 시니온(SINION). All rights reserved.</copyright>
+        <managingEditor>senioron@hanmail.net (시니온)</managingEditor>
+        <webMaster>senioron@hanmail.net (시니온)</webMaster>
+        <lastBuildDate>Tue, 10 Dec 2025 00:00:00 +0900</lastBuildDate>
+        <pubDate>Tue, 10 Dec 2025 00:00:00 +0900</pubDate>
+        <ttl>60</ttl>
+        <atom:link href="https://www.sinion.co.kr/rss.xml" rel="self" type="application/rss+xml"/>
+        
+        <!-- 메인 페이지 -->
+        <item>
+            <title>시니온(SINION) - 시니어 전문 교육 프로그램</title>
+            <link>https://www.sinion.co.kr/</link>
+            <description>시니어 전문 교육 브랜드. 시니어의 삶에 따뜻한 빛과 기억을 다시 켜드리는 전문 교육 프로그램 및 케어 서비스를 제공합니다.</description>
+            <pubDate>Tue, 10 Dec 2025 00:00:00 +0900</pubDate>
+            <guid isPermaLink="true">https://www.sinion.co.kr/</guid>
+        </item>
+        
+        <!-- 프로그램 페이지 -->
+        <item>
+            <title>시니어 전문 프로그램</title>
+            <link>https://www.sinion.co.kr/program.html</link>
+            <description>추억음악, 회상미술, 신체활동, 감정회상 프로그램을 통해 시니어의 정서 안정과 신체 건강, 인지 기능 향상을 지원합니다.</description>
+            <pubDate>Tue, 10 Dec 2025 00:00:00 +0900</pubDate>
+            <guid isPermaLink="true">https://www.sinion.co.kr/program.html</guid>
+        </item>
+        
+        <!-- 교육 아카데미 -->
+        <item>
+            <title>교육 아카데미</title>
+            <link>https://www.sinion.co.kr/academy.html</link>
+            <description>시니어AI콘텐츠지도사, 회상미술지도사, 음악신체지도사, 클린케어마스터, 감정소통전문가 등 전문 강사 자격증 취득 프로그램을 제공합니다.</description>
+            <pubDate>Tue, 10 Dec 2025 00:00:00 +0900</pubDate>
+            <guid isPermaLink="true">https://www.sinion.co.kr/academy.html</guid>
+        </item>
+        
+        <!-- 추억음악 프로그램 -->
+        <item>
+            <title>추억음악 프로그램</title>
+            <link>https://www.sinion.co.kr/program-music.html</link>
+            <description>시니어의 정서 안정, 인지 자극, 사회적 소통을 돕는 전문 음악활동 프로그램으로 인지 기능 향상과 삶의 질 개선을 지원합니다.</description>
+            <pubDate>Tue, 10 Dec 2025 00:00:00 +0900</pubDate>
+            <guid isPermaLink="true">https://www.sinion.co.kr/program-music.html</guid>
+        </item>
+        
+        <!-- 회상미술 프로그램 -->
+        <item>
+            <title>회상미술 프로그램</title>
+            <link>https://www.sinion.co.kr/program-art.html</link>
+            <description>창의와 기억회상 중심의 미술 치매예방 프로그램으로 시니어의 정서 안정과 인지 기능 활성화를 지원합니다.</description>
+            <pubDate>Tue, 10 Dec 2025 00:00:00 +0900</pubDate>
+            <guid isPermaLink="true">https://www.sinion.co.kr/program-art.html</guid>
+        </item>
+        
+        <!-- 신체활동 프로그램 -->
+        <item>
+            <title>신체활동 프로그램</title>
+            <link>https://www.sinion.co.kr/program-physical.html</link>
+            <description>고령자의 신체 기능을 안전하게 강화하고 일상생활 능력 향상을 돕는 체육활동 프로그램을 제공합니다.</description>
+            <pubDate>Tue, 10 Dec 2025 00:00:00 +0900</pubDate>
+            <guid isPermaLink="true">https://www.sinion.co.kr/program-physical.html</guid>
+        </item>
+        
+        <!-- 감정회상 프로그램 -->
+        <item>
+            <title>감정회상 프로그램</title>
+            <link>https://www.sinion.co.kr/program-emotion.html</link>
+            <description>과거의 추억을 떠올리고 현재의 감정을 안전하게 표현하도록 돕는 정서·인지 중심 프로그램을 제공합니다.</description>
+            <pubDate>Tue, 10 Dec 2025 00:00:00 +0900</pubDate>
+            <guid isPermaLink="true">https://www.sinion.co.kr/program-emotion.html</guid>
+        </item>
+        
+        <!-- 시니온 소식 -->
+        <item>
+            <title>시니온 소식</title>
+            <link>https://www.sinion.co.kr/news.html</link>
+            <description>공지사항과 포토갤러리를 통해 시니온의 최신 소식과 교육 프로그램 활동을 확인하실 수 있습니다.</description>
+            <pubDate>Tue, 10 Dec 2025 00:00:00 +0900</pubDate>
+            <guid isPermaLink="true">https://www.sinion.co.kr/news.html</guid>
+        </item>
+        
+    </channel>
+</rss>
+
