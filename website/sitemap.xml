@@ -12,7 +12,7 @@
     <!-- 메인 페이지 -->
     <url>
         <loc>https://sinion.vercel.app/</loc>
-        <lastmod>2024-01-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -20,7 +20,7 @@
     <!-- 프로그램 페이지 -->
     <url>
         <loc>https://sinion.vercel.app/program.html</loc>
-        <lastmod>2024-01-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -28,7 +28,7 @@
     <!-- 교육 아카데미 -->
     <url>
         <loc>https://sinion.vercel.app/academy.html</loc>
-        <lastmod>2024-01-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -36,28 +36,28 @@
     <!-- 프로그램 상세 페이지 -->
     <url>
         <loc>https://sinion.vercel.app/program-music.html</loc>
-        <lastmod>2024-01-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://sinion.vercel.app/program-art.html</loc>
-        <lastmod>2024-01-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://sinion.vercel.app/program-physical.html</loc>
-        <lastmod>2024-01-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://sinion.vercel.app/program-emotion.html</loc>
-        <lastmod>2024-01-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -65,7 +65,7 @@
     <!-- 시니온 소식 -->
     <url>
         <loc>https://sinion.vercel.app/news.html</loc>
-        <lastmod>2024-01-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -73,7 +73,7 @@
     <!-- 문의하기 -->
     <url>
         <loc>https://sinion.vercel.app/contact.html</loc>
-        <lastmod>2024-01-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -81,7 +81,7 @@
     <!-- 교육신청문의 -->
     <url>
         <loc>https://sinion.vercel.app/education.html</loc>
-        <lastmod>2024-01-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -89,7 +89,7 @@
     <!-- 로그인 -->
     <url>
         <loc>https://sinion.vercel.app/login.html</loc>
-        <lastmod>2024-01-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
@@ -97,7 +97,7 @@
     <!-- 회원가입 -->
     <url>
         <loc>https://sinion.vercel.app/register.html</loc>
-        <lastmod>2024-01-01</lastmod>
+        <lastmod>2025-12-10</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
